@@ -1,19 +1,31 @@
-# ec
+# 低碳 e 点点开发文档
 
-## Project setup
+## 1.使用说明
+
+#### Project setup
+
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+#### Compiles and hot-reloads for development
+
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+#### Compiles and minifies for production
+
 ```
 npm run build
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## 2.开发记录
+
+### 3.21 开发记录
+
+- 完成项目框架的搭建
+- 完成了移动端的适配
+- 引入了 element-ui 组件库
+- 完成了请求拦截器和响应拦截器
+- 完成了 Header 组件的开发
