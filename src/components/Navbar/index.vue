@@ -1,10 +1,10 @@
 <template>
   <div>
     <nav class="nav animated bounce">
-      <!-- <li v-for="item in navItem" :key="item.meta.title" :class="{ active: item.name == selectILi, animate__rollOut: item.name == selectILi }" @click="selected(item)">
+      <li v-for="item in navItem" :key="item.meta.title" :class="{ active: item.name == selectILi, animate__rollOut: item.name == selectILi }" @click="selected(item)">
         <i :class="`${item.meta.icon}`" />{{ item.meta.title }}
-      </li> -->
-      <li v-for="item in 8" :key="item" @click="selected(item)">{{ item }}</li>
+      </li>
+      <!-- <li v-for="item in 8" :key="item" @click="selected(item)">{{ item }}</li> -->
     </nav>
   </div>
 </template>
@@ -60,22 +60,29 @@
     display: flex;
     justify-content: space-between;
     height: @height;
-    background-color: #f8f8f8;
+    background-color: #f7f7f7;
     width: 100%;
+    padding: 0 30px;
+    box-shadow: 0 1px 4px #dadada;
     li {
       display: flex;
       justify-content: center;
       align-items: center;
       height: @height;
       width: 220px;
-      font-size: 6px;
+      border-right: 0.5px solid #e4e6e7;
+      font-size: 4px;
       color: #000;
       cursor: pointer;
-      transition: all 0.2s;
+      transition: all 0.5s;
       &:hover {
-        color: @color;
+        color: #fff;
         font-weight: 600;
-        border-bottom: @color 1px solid;
+        width: 260px;
+        background-color: @color;
+      }
+      &:first-child {
+        border-left: 0.5px solid #e4e6e7;
       }
     }
   }

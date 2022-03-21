@@ -4,7 +4,7 @@
       <li class="logo"><img src="./img/logo.png" /></li>
       <!-- 搜索框 -->
       <li class="search">
-        <input type="text" class="input-search" v-model="keyword" />
+        <input type="text" class="input-search" placeholder="   碳中和  碳达峰" style="font-size: 8px" v-model="keyword" />
         <button class="btn-search" @click="goSearch">搜索</button>
       </li>
     </ul>
@@ -15,9 +15,16 @@
   export default {
     name: 'Header',
     data() {
-      return {}
+      return {
+        keyword: '',
+      }
     },
-    methods: {},
+    methods: {
+      // 搜索功能
+      goSearch() {
+        console.log(1)
+      },
+    },
   }
 </script>
 
@@ -30,7 +37,7 @@
     margin: 0 auto;
     background-color: #f8f8f8;
     background-image: url('./img/1.jpg');
-		background-size: 100%;
+    background-size: 100%;
     background-repeat: no-repeat;
     ul {
       height: 100%;
