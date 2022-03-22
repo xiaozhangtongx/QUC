@@ -43,13 +43,13 @@ const routes = [
       {
         path: '/echart/country',
         name: 'Country',
-        meta: { icon: 'el-icon-s-home', title: '全国数据可视乎' },
+        meta: { icon: 'el-icon-s-home', title: '全国数据可视化' },
         component: () => import('@/views/Echarts/Country'),
       },
       {
         path: '/echart/province',
         name: 'Province',
-        meta: { icon: 'el-icon-s-home', title: '各省数据可视乎' },
+        meta: { icon: 'el-icon-s-home', title: '各省数据可视化' },
         component: () => import('@/views/Echarts/Province'),
       },
     ],
@@ -71,6 +71,6 @@ const routes = [
     path: '*',
     component: () => import('@/views/Error/404'),
   },
-]
+];
 
-export default routes
+export default routes;
