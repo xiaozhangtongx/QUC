@@ -32,8 +32,8 @@
   @Color: #0dbc79;
   // @color: #2b2b5c;
   #header {
-    height: 20px;
-    line-height: 20px;
+    height: 40px;
+    line-height: 40px;
     margin: 0 auto;
     background-color: #f8f8f8;
     background-image: url('./img/1.jpg');

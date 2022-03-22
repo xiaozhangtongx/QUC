@@ -1,48 +1,39 @@
 <template>
   <div>
-    <nav class="nav animated bounce">
-      <li v-for="item in navItem" :key="item.meta.title" :class="{ active: item.name == selectILi, animate__rollOut: item.name == selectILi }" @click="selected(item)">
-        <i :class="`${item.meta.icon}`" />{{ item.meta.title }}
+    <ul class="menu">
+      <li v-for="item in navItem" :key="item">
+        <span class="content" :class="{ active: item.name == selectILi, animate__rollOut: item.name == selectILi }" @click="selected(item)"
+          ><i :class="`${item.meta.icon}`" class="icons" />{{ item.meta.title }}</span
+        >
+        <ul class="box">
+          <li v-for="items in item.children" :key="items" @click="selected(items)">{{ items.meta.title }}</li>
+        </ul>
       </li>
-      <!-- <li v-for="item in 8" :key="item" @click="selected(item)">{{ item }}</li> -->
-    </nav>
+    </ul>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'Nav',
+    name: '',
     data() {
-      this.openKeysMap = {}
-      this.selectedKeysMap = {}
       let menuData = this.getMenuData(this.$router.options.routes)
       return {
+        selectILi: 'Home',
         // 导航栏数据
-        navItem: menuData[0].children,
-        // 现在正正在被选的li
-        selectILi: 'home',
+        navItem: menuData,
       }
     },
     methods: {
-      // 获取导航栏数据
-      getMenuData(routes = [], parentKeys = [], selectedKey) {
-        const menuData = []
-        // 权限的动态生成
+      // 动态记载导航栏数据
+      getMenuData(routes) {
+        let res = []
         for (let item of routes) {
           if (item.name && !item.hideInMenu) {
-            this.openKeysMap[item.path] = parentKeys
-            this.selectedKeysMap[item.path] = [selectedKey || item.path]
-            const newItem = { ...item }
-            delete newItem.children
-            menuData.push(newItem)
-            if (item.children && !item.hideChildrenInMenu) {
-              newItem.children = this.getMenuData(item.children, [...parentKeys, item.path])
-            } else {
-              this.getMenuData(item.children, selectedKey ? parentKeys : [...parentKeys, item.path], selectedKey || item.path)
-            }
+            res.push(item)
           }
         }
-        return menuData
+        return res
       },
       // 修改被选择li的样式
       selected(item) {
@@ -54,45 +45,63 @@
 </script>
 
 <style scoped lang="less">
-  @height: 10px;
-  @color: #0dbc79;
-  .nav {
+  .menu {
     display: flex;
     justify-content: space-between;
-    height: @height;
     background-color: #f7f7f7;
     width: 100%;
+    height: 10px;
     padding: 0 30px;
     box-shadow: 0 1px 4px #dadada;
-    li {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: @height;
-      width: 220px;
-      border-right: 0.5px solid #e4e6e7;
-      font-size: 4px;
-      color: #000;
+    & > li {
+      text-align: center;
+      width: 40px;
       cursor: pointer;
-      transition: all 0.5s;
+      transition: 0.6s all;
       &:hover {
-        color: #fff;
-        font-weight: 600;
-        width: 260px;
-        background-color: @color;
+        width: 50px;
+        transition: all 0.3s ease-in-out;
+        background: linear-gradient(to right, #41eeba, #0dbc79);
+        > ul {
+          visibility: inherit;
+        }
       }
-      &:first-child {
-        border-left: 0.5px solid #e4e6e7;
+      .content {
+        display: inline-block;
+        height: 10px;
+        line-height: 10px;
+        text-align: center;
+        width: 50px;
+      }
+      .box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        visibility: hidden;
+        & > li {
+          width: 50px;
+          height: 10px;
+          line-height: 10px;
+          border-bottom: 0.5px solid #ffffff;
+          z-index: 1000;
+          background-color: #eee;
+          &:hover {
+            width: 50px;
+            transition: all 0.3s ease-in-out;
+            background: linear-gradient(to right, #41eeba, #0dbc79);
+          }
+        }
       }
     }
   }
-  .icons {
-    margin-right: 5px;
-  }
   .active {
-    background-color: @color;
+    background: linear-gradient(to right, #41eeba, #0dbc79);
     color: #fff !important;
     font-weight: 600;
-    // border-radius: 5px;
+  }
+  .icons {
+    margin-right: 5px;
   }
 </style>

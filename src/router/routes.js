@@ -16,28 +16,28 @@ const routes = [
   {
     path: '/policy',
     name: 'Policy',
-    meta: { icon: 'el-icon-s-home', title: '资讯' },
+    meta: { icon: 'el-icon-tickets', title: '资讯' },
     component: () => import('@/views/Policy'),
   },
   // 活动模块路由
   {
     path: '/activity',
     name: 'Activity',
-    meta: { icon: 'el-icon-s-home', title: '活动' },
+    meta: { icon: 'el-icon-s-flag', title: '活动' },
     component: () => import('@/views/Activity'),
   },
   // 视频模块路由
   {
     path: '/video',
     name: 'Video',
-    meta: { icon: 'el-icon-s-home', title: '视频' },
+    meta: { icon: 'el-icon-video-camera', title: '视频' },
     component: () => import('@/views/Videos'),
   },
   // 数据可视化模块路由
   {
     path: '/echart',
     name: 'Echart',
-    meta: { icon: 'el-icon-s-home', title: '可视化' },
+    meta: { icon: 'el-icon-s-data', title: '可视化' },
     component: () => import('@/views/Echarts'),
     children: [
       {
@@ -58,19 +58,17 @@ const routes = [
   {
     path: '/my',
     name: 'My',
-    meta: { icon: 'el-icon-s-home', title: '个人中心' },
+    meta: { icon: 'el-icon-s-custom', title: '个人中心' },
     component: () => import('@/views/My'),
   },
   // 401
   {
     path: '/401',
-    name: '401',
     component: () => import('@/views/Error/401'),
   },
   // 404
   {
     path: '*',
-    name: '404',
     component: () => import('@/views/Error/404'),
   },
 ]
