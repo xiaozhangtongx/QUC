@@ -2,6 +2,9 @@
   <div id="app">
     <Header></Header>
     <Navbar></Navbar>
+    <el-backtop>
+      <i class="el-icon-caret-top"></i>
+    </el-backtop>
     <router-view />
     <Footer></Footer>
   </div>
@@ -23,7 +26,16 @@
 <style lang="less">
   #app {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     overflow-x: hidden;
+  }
+  .el-backtop {
+    width: 10px !important;
+    height: 10px !important;
+    font-size: 2px;
+  }
+  .el-icon-caret-top {
+    font-size: 8px;
+    color: #0dbc79;
   }
 </style>
