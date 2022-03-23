@@ -19,7 +19,6 @@
     data() {
       let menuData = this.getMenuData(this.$router.options.routes)
       return {
-        selectILi: 'Home',
         // 导航栏数据
         navItem: menuData,
       }
@@ -37,8 +36,13 @@
       },
       // 修改被选择li的样式
       selected(item) {
-        this.selectILi = item.name
+        this.$store.dispatch('changeActiveId', item.name)
         this.$router.push(item.path)
+      },
+    },
+    computed: {
+      selectILi() {
+        return this.$store.state.nav.selectId
       },
     },
   }
