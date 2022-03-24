@@ -54,6 +54,13 @@ const routes = [
       },
     ],
   },
+  // 打卡论坛模块路由
+  {
+    path: '/blog',
+    name: 'Blog',
+    meta: { icon: 'el-icon-s-flag', title: '低碳在行动' },
+    component: () => import('@/views/Blog'),
+  },
   // 个人中心模块路由
   {
     path: '/my',

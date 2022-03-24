@@ -54,12 +54,12 @@
     justify-content: space-between;
     background-color: #f7f7f7;
     width: 100%;
-    height: 10px;
     padding: 0 30px;
     box-shadow: 0 1px 4px #dadada;
     & > li {
       text-align: center;
       width: 40px;
+      height: 10px;
       cursor: pointer;
       transition: 0.6s all;
       &:hover {
@@ -71,11 +71,12 @@
         }
       }
       .content {
-        display: inline-block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         height: 10px;
-        line-height: 10px;
-        text-align: center;
         width: 50px;
+        font-size: 4px;
       }
       .box {
         display: flex;
@@ -85,9 +86,12 @@
         overflow: hidden;
         visibility: hidden;
         & > li {
+          display: flex;
+          justify-content: center;
+          align-items: center;
           width: 50px;
           height: 10px;
-          line-height: 10px;
+          font-size: 4px;
           border-bottom: 0.5px solid #ffffff;
           z-index: 1000;
           background-color: #eee;
