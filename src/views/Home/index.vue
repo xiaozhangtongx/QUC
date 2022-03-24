@@ -10,9 +10,9 @@
       </el-carousel>
     </div>
     <!-- 首页主体部分 -->
-    <div id="home">
+    <div class="home-top">
       <!-- 首页主体左侧部分 -->
-      <section class="home-left">
+      <section class="home-top-left">
         <!-- 相关资讯 -->
         <li class="home-policy">
           <h2><router-link to="./policy">低碳资讯</router-link></h2>
@@ -26,6 +26,19 @@
             <HomeVideo v-for="item in 4" :key="item" class="video"></HomeVideo>
           </div>
         </li>
+      </section>
+      <!-- 首页主体右侧部分 -->
+      <section class="home-top-right">
+        <li class="home-rank">
+          <h2><router-link to="./my">低碳在行动</router-link></h2>
+          <div>
+            <HomeAction></HomeAction>
+          </div>
+        </li>
+      </section>
+    </div>
+    <div class="home-bottom">
+      <section>
         <li class="home-activity">
           <h2><router-link to="./activity">低碳活动</router-link></h2>
           <div class="activity-card">
@@ -33,8 +46,6 @@
           </div>
         </li>
       </section>
-      <!-- 首页主体右侧部分 -->
-      <section class="home-right">right</section>
     </div>
   </div>
 </template>
@@ -43,6 +54,7 @@
   import PolicyCards from './components/PolicyCards'
   import HomeVideo from './components/HomeVideo'
   import HomeActive from './components/HomeActive'
+  import HomeAction from './components/HomeAction'
   export default {
     name: '',
     data() {
@@ -54,6 +66,7 @@
       PolicyCards,
       HomeVideo,
       HomeActive,
+      HomeAction,
     },
     methods: {
       // 获取images文件夹下面的图片
@@ -100,17 +113,17 @@
     height: 0;
   }
   /*------------------------------首页主体样式------------------------------*/
-  #home {
+  // 首页一些公共样式
+  .home-top,
+  .home-bottom {
     display: flex;
     justify-content: space-between;
     width: 100%;
     padding: 6px 30px;
-    .home-left {
-      width: 75%;
-      flex: 3;
+    > section {
       overflow: hidden;
       li {
-        padding: 0 6px 6px 0;
+        padding: 0 0 6px 0;
         > h2 {
           height: 11px;
           border-bottom: 0.5px solid #eee;
@@ -144,38 +157,61 @@
             }
           }
         }
-        .card {
-          width: 32%;
-        }
-        .activity-card {
-          display: flex;
-          flex-wrap: nowrap;
-          animation: move 5s linear infinite; /*循环播放 匀速*/
-          .card {
-            margin-right: 5px;
-          }
-          &:hover {
-            animation-play-state: paused;
-          }
-          @keyframes move {
-            form {
-              transform: translateX(0);
+      }
+    }
+  }
+  // 首页上部分样式
+  .home-top {
+    .home-top-left {
+      width: 74%;
+      flex: 3;
+      .card {
+        width: 32%;
+      }
+      // 视频部分
+      .video {
+        width: 49%;
+      }
+    }
+    .home-top-right {
+      flex: 1;
+      width: 24%;
+      padding-left: 6px;
+      .home-rank {
+        > div {
+          div {
+            &:hover {
+              transform: none;
+              box-shadow: none;
             }
-            to {
-              transform: translateX(-160px); /*只需要移动6张图的距离，这时显示的是最后一张图，而最后一张图和第一张图是一样的，造成一种循环的假象*/
-            }
           }
-        }
-
-        .video {
-          width: 49%;
         }
       }
     }
-    .home-right {
-      flex: 1;
-      width: 25%;
-      // background-color: #199e5c;
+  }
+  // 首页下部分样式
+  .home-bottom {
+    // 活动卡片部分
+    .activity-card {
+      display: flex;
+      flex-wrap: nowrap;
+      margin-right: 5px;
+      animation: move 10s linear infinite; /*循环播放 匀速*/
+      .card {
+        width: 20%;
+        margin-right: 5px;
+      }
+      &:hover {
+        animation-play-state: paused;
+      }
+      @keyframes move {
+        form {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-20%);
+        }
+      }
     }
   }
 </style>

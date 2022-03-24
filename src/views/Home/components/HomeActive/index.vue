@@ -1,9 +1,9 @@
 <template>
-  <div class="policy-card">
+  <div class="active-card">
     <img v-lazy="imgs" alt="你的图片被拐跑了" />
     <article>
       <p class="title">1231dasdasdasdasdasdasdasdasdasdasdasdasdsadasdasdasdasdasdasdadas</p>
-      <p style="time">2021年12月12日</p>
+      <p style="time"><i class="el-icon-time"></i> 2021年12月12日</p>
     </article>
   </div>
 </template>
@@ -20,10 +20,10 @@
 </script>
 
 <style scoped lang="less">
-  .policy-card {
+  .active-card {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 80%;
     img {
       width: 100%;
       height: 45px;
@@ -32,13 +32,14 @@
       overflow: hidden;
     }
     article {
+      width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       p {
         margin: 6px 0;
-        width: 60px;
+        width: 80%;
         overflow: hidden;
         word-wrap: break-word;
         text-overflow: ellipsis;
@@ -49,7 +50,7 @@
       .title {
         margin-bottom: 0;
         font-size: 5px;
-        -webkit-line-clamp: 2; //显示的行数
+        -webkit-line-clamp: 3; //显示的行数
         font-weight: 600;
       }
     }

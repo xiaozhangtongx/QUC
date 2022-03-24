@@ -1,5 +1,5 @@
 // 导入部分Element-UI组件
-import { Button, Select, Form, FormItem, Input, Carousel, CarouselItem, Backtop } from 'element-ui'
+import { Button, Select, Form, FormItem, Input, Carousel, CarouselItem, Backtop, Tabs, TabPane } from 'element-ui'
 const element = {
   install: (Vue) => {
     Vue.use(Button)
@@ -10,6 +10,8 @@ const element = {
     Vue.use(Carousel)
     Vue.use(CarouselItem)
     Vue.use(Backtop)
+    Vue.use(Tabs)
+    Vue.use(TabPane)
   },
 }
 export default element
