@@ -1,15 +1,22 @@
 <template>
-  <div>全国</div>
+  <div>
+    <WordCloud />
+  </div>
 </template>
 
 <script>
-  export default {
-    name: '',
-    data() {
-      return {}
-    },
-    methods: {},
-  }
+import WordCloud from '../components/WordCloud';
+
+export default {
+  name: '',
+  data() {
+    return {};
+  },
+  methods: {},
+  components: {
+    WordCloud,
+  },
+};
 </script>
 
 <style scoped lang="less"></style>
