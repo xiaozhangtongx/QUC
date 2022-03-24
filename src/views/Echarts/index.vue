@@ -5,7 +5,7 @@
     </div>
     <div class="right">
       <div id="ltop">
-        <Country v-if="showType == 'country'" /> <Province v-else />
+        <Percent />
       </div>
       <div id="lbottom">
         <WordCloud />
@@ -15,22 +15,18 @@
 </template>
 
 <script>
-import Country from './Country';
-import Province from './Province';
+import Percent from './components/Percent';
 import WordCloud from './components/WordCloud';
 import Map from './components/Map';
 
 export default {
   name: '',
   data() {
-    return {
-      showType: 'country',
-    };
+    return {};
   },
   methods: {},
   components: {
-    Country,
-    Province,
+    Percent,
     WordCloud,
     Map,
   },
@@ -42,15 +38,20 @@ export default {
   display: flex;
 }
 .left {
-  width: 50%;
+  flex: 1.7;
 }
 .right {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
+}
+.lbottom,
+.ltop {
+  flex: 1;
 }
 .lbottom {
-  width: 30%;
+  width: 100%;
+  height: 100%;
 }
 </style>

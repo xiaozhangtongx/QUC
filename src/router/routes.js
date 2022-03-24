@@ -39,20 +39,6 @@ const routes = [
     name: 'Echart',
     meta: { icon: 'el-icon-s-data', title: '可视化' },
     component: () => import('@/views/Echarts'),
-    children: [
-      {
-        path: '/echart/country',
-        name: 'Country',
-        meta: { icon: 'el-icon-s-home', title: '全国数据可视化' },
-        component: () => import('@/views/Echarts/Country'),
-      },
-      {
-        path: '/echart/province',
-        name: 'Province',
-        meta: { icon: 'el-icon-s-home', title: '各省数据可视化' },
-        component: () => import('@/views/Echarts/Province'),
-      },
-    ],
   },
   // 打卡论坛模块路由
   {

@@ -227,7 +227,7 @@ export default {
             align: 'center',
           },
         },
-        backgroundColor: '#11183c',
+        // backgroundColor: 'green',
         grid: {
           left: '9%',
           right: '10%',

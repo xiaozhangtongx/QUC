@@ -149,50 +149,6 @@ export default {
             bottom: '8%',
             width: '20%',
           },
-          toolbox: {
-            feature: {
-              restore: {
-                show: false,
-              },
-              dataView: {
-                optionToContent: function (opt) {
-                  let series = opt.series[0].data; //折线图数据
-                  let tdHeads =
-                    '<th  style="padding: 0 20px">所在地区</th><th style="padding: 0 20px">销售额</th>'; //表头
-                  let tdBodys = ''; //数据
-                  let table = `<table border="1" style="margin-left:20px;border-collapse:collapse;font-size:14px;text-align:left;"><tbody><tr>${tdHeads} </tr>`;
-                  for (let i = 0; i < series.length; i++) {
-                    table += `<tr>
-                              <td style="padding: 0 50px">${series[i].name}</td>
-                              <td style="padding: 0 50px">${series[
-                                i
-                              ].value.toFixed(2)}万</td>
-                              </tr>`;
-                  }
-                  table += '</tbody></table>';
-                  return table;
-                },
-              },
-              saveAsImage: {
-                name:
-                  this.parentInfo[this.parentInfo.length - 1].cityName +
-                  '销售额统计图',
-              },
-              dataZoom: {
-                show: false,
-              },
-              magicType: {
-                show: false,
-              },
-            },
-            iconStyle: {
-              normal: {
-                borderColor: '#1990DA',
-              },
-            },
-            top: 15,
-            right: 35,
-          },
           geo: {
             map: this.parentInfo.length === 1 ? 'china' : 'map',
             zoom: 1.1,

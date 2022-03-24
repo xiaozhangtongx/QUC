@@ -1,6 +1,6 @@
 <template>
   <!-- 为 ECharts 准备一个定义了宽高的 DOM -->
-  <div id="wordCloud" style="width: 600px; height: 400px"></div>
+  <div id="wordCloud"></div>
 </template>
 
 <script>
@@ -432,7 +432,7 @@ export default {
 </script>
 
 <style scoped lang="less">
-#main {
+div {
   width: 95%;
   height: 95%;
 }
