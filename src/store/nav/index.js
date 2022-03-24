@@ -1,6 +1,6 @@
 // 用户模块仓库
 const state = {
-  selectId: 'Home',
+  selectId: window.localStorage.getItem('selectId'),
 }
 
 const mutations = {
@@ -13,6 +13,7 @@ const actions = {
   // activeId的更改
   changeActiveId({ commit }, selectId) {
     commit('CHANGEID', selectId)
+    window.localStorage.setItem('selectId', selectId)
   },
 }
 const getters = {}

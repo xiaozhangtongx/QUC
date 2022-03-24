@@ -3,12 +3,14 @@
     <ul>
       <li v-for="item in tag" :key="item.id" @click="selected(item)" :class="{ active: item.id == selectLi }">{{ item.title }}</li>
     </ul>
-    <section v-if="selectLi == 1">123</section>
+    <section v-if="selectLi == 1"><BlogCard v-for="item in 2" :key="item" class="video"></BlogCard></section>
     <section v-else>1234</section>
+    <router-link class="more" to="/blog">更多<span>>>></span></router-link>
   </div>
 </template>
 
 <script>
+  import BlogCard from '@/components/BlogCard'
   export default {
     name: '',
     data() {
@@ -19,6 +21,9 @@
         ],
         selectLi: 1,
       }
+    },
+    components: {
+      BlogCard,
     },
     methods: {
       selected(item) {
@@ -35,7 +40,7 @@
     ul {
       display: flex;
       justify-content: space-evenly;
-      border-bottom: solid 0.5px #ddd;
+      border-bottom: solid 0.4px #eeeeee;
       li {
         flex: 1;
         display: flex;
@@ -49,6 +54,15 @@
     }
   }
 
+  .more {
+    font-size: 3.2px;
+    span {
+      transition: all 0.2s linear;
+      &:hover {
+        margin-left: 2px;
+      }
+    }
+  }
   .active {
     color: #1a967e;
     border-bottom: 0.5px solid #1a967e !important;

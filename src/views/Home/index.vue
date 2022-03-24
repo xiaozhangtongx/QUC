@@ -35,6 +35,12 @@
             <HomeAction></HomeAction>
           </div>
         </li>
+        <li class="home-show">
+          <h2><router-link to="./my">数据可视化</router-link></h2>
+          <div>
+            <img src="./images/V1.jpg" alt="" />
+          </div>
+        </li>
       </section>
     </div>
     <div class="home-bottom">
@@ -162,6 +168,7 @@
   }
   // 首页上部分样式
   .home-top {
+    height: 340px;
     .home-top-left {
       width: 74%;
       flex: 3;
@@ -177,7 +184,9 @@
       flex: 1;
       width: 24%;
       padding-left: 6px;
-      .home-rank {
+      .home-rank,
+      .home-show {
+        height: 60%;
         > div {
           div {
             &:hover {
@@ -186,6 +195,9 @@
             }
           }
         }
+      }
+      .home-show {
+        height: 40%;
       }
     }
   }

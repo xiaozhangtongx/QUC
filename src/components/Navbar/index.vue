@@ -1,12 +1,12 @@
 <template>
   <div>
     <ul class="menu">
-      <li v-for="item in navItem" :key="item">
+      <li v-for="(item, index) in navItem" :key="index">
         <span class="content" :class="{ active: item.name == selectILi, animate__rollOut: item.name == selectILi }" @click="selected(item)"
           ><i :class="`${item.meta.icon}`" class="icons" />{{ item.meta.title }}</span
         >
         <ul class="box">
-          <li v-for="items in item.children" :key="items" @click="selected(items)">{{ items.meta.title }}</li>
+          <li v-for="(items, index) in item.children" :key="index" @click="selected(items)">{{ items.meta.title }}</li>
         </ul>
       </li>
     </ul>
@@ -42,7 +42,7 @@
     },
     computed: {
       selectILi() {
-        return this.$store.state.nav.selectId
+        return this.$store.state.nav.selectId || 'Home'
       },
     },
   }
@@ -52,10 +52,10 @@
   .menu {
     display: flex;
     justify-content: space-between;
-    background-color: #f7f7f7;
     width: 100%;
     padding: 0 30px;
     box-shadow: 0 1px 4px #dadada;
+    background-color: #f7f7f7;
     & > li {
       text-align: center;
       width: 40px;
@@ -111,5 +111,6 @@
   }
   .icons {
     margin-right: 5px;
+    font-size: 4px;
   }
 </style>
