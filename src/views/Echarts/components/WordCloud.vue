@@ -1,15 +1,309 @@
 <template>
   <!-- 为 ECharts 准备一个定义了宽高的 DOM -->
-  <div id="main" style="width: 60px; height: 40px"></div>
+  <div id="wordCloud" style="width: 600px; height: 400px"></div>
 </template>
 
 <script>
+let myChart;
 export default {
-  name: 'word cloud',
+  name: 'wordCloud',
   data() {
+    const colorData = this.getColorList();
+    const wordsData = this.getWords(colorData);
     return {
-      word: [],
-      colorList: [
+      words: wordsData,
+    };
+  },
+  mounted() {
+    //   构建好词云图
+    this.myCharts();
+  },
+  methods: {
+    getWords(colorData) {
+      let ret = [
+        {
+          type: 'graph',
+          layout: 'force',
+          force: {
+            repulsion: 500,
+            edgeLength: 10,
+          },
+          roam: true,
+          label: {
+            normal: {
+              show: true,
+            },
+          },
+          data: [
+            {
+              name: '新冠肺炎愈后一般6个月内不会再得',
+              value: 2373,
+              symbolSize: 48,
+              draggable: true,
+              itemStyle: {
+                normal: {
+                  shadowBlur: 100,
+                  shadowColor: colorData[0],
+                  color: colorData[0],
+                },
+              },
+            },
+            {
+              name: '女篮两连胜后大喊武汉加油',
+              value: 5449,
+              symbolSize: 73,
+              draggable: true,
+              itemStyle: {
+                normal: {
+                  shadowBlur: 100,
+                  shadowColor: colorData[1],
+                  color: colorData[1],
+                },
+              },
+            },
+            {
+              name: '火神山医院开微博',
+              value: 2289,
+              symbolSize: 67,
+              draggable: true,
+              itemStyle: {
+                normal: {
+                  shadowBlur: 100,
+                  shadowColor: colorData[2],
+                  color: colorData[2],
+                },
+              },
+            },
+            {
+              name: '医疗队女队员集体理平头和光头',
+              value: 2518,
+              symbolSize: 50,
+              draggable: true,
+              itemStyle: {
+                normal: {
+                  shadowBlur: 100,
+                  shadowColor: colorData[3],
+                  color: colorData[3],
+                },
+              },
+            },
+            {
+              name: '缅怀疫情中逝去的人们',
+              value: 4730,
+              symbolSize: 88,
+              draggable: true,
+              itemStyle: {
+                normal: {
+                  shadowBlur: 100,
+                  shadowColor: colorData[4],
+                  color: colorData[4],
+                },
+              },
+            },
+            {
+              name: '妨害疫情防控的违法行为',
+              value: 1952,
+              symbolSize: 55,
+              draggable: true,
+              itemStyle: {
+                normal: {
+                  shadowBlur: 100,
+                  shadowColor: colorData[5],
+                  color: colorData[5],
+                },
+              },
+            },
+            {
+              name: '66岁重症患者8天快速康复',
+              value: 926,
+              symbolSize: 70,
+              draggable: true,
+              itemStyle: {
+                normal: {
+                  shadowBlur: 100,
+                  shadowColor: colorData[6],
+                  color: colorData[6],
+                },
+              },
+            },
+            {
+              name: '别让快递小哥一直等在寒风中',
+              value: 4536,
+              symbolSize: 67,
+              draggable: true,
+              itemStyle: {
+                normal: {
+                  shadowBlur: 100,
+                  shadowColor: colorData[7],
+                  color: colorData[7],
+                },
+              },
+            },
+            {
+              name: '湖北以外地区新增病例数连降5天',
+              value: 750,
+              symbolSize: 47,
+              draggable: true,
+              itemStyle: {
+                normal: {
+                  shadowBlur: 100,
+                  shadowColor: colorData[8],
+                  color: colorData[8],
+                },
+              },
+            },
+            {
+              name: '女儿写给战疫一线爸爸的信',
+              value: 493,
+              symbolSize: 82,
+              draggable: true,
+              itemStyle: {
+                normal: {
+                  shadowBlur: 100,
+                  shadowColor: colorData[9],
+                  color: colorData[9],
+                },
+              },
+            },
+            {
+              name: '青海连续3天无新增病例',
+              value: 385,
+              symbolSize: 59,
+              draggable: true,
+              itemStyle: {
+                normal: {
+                  shadowBlur: 100,
+                  shadowColor: colorData[10],
+                  color: colorData[10],
+                },
+              },
+            },
+            {
+              name: '辽宁再派1000名医护人员驰援武汉',
+              value: 4960,
+              symbolSize: 90,
+              draggable: true,
+              itemStyle: {
+                normal: {
+                  shadowBlur: 100,
+                  shadowColor: colorData[11],
+                  color: colorData[11],
+                },
+              },
+            },
+            {
+              name: '抗击新型肺炎第一线',
+              value: 8694000,
+              symbolSize: 134,
+              draggable: true,
+              itemStyle: {
+                normal: {
+                  shadowBlur: 100,
+                  shadowColor: colorData[12],
+                  color: colorData[12],
+                },
+              },
+            },
+            {
+              name: '12项疫情防控惠民政策',
+              value: 5668,
+              symbolSize: 75,
+              draggable: true,
+              itemStyle: {
+                normal: {
+                  shadowBlur: 100,
+                  shadowColor: colorData[13],
+                  color: colorData[13],
+                },
+              },
+            },
+            {
+              name: '战疫一线的别样团圆',
+              value: 339,
+              symbolSize: 68,
+              draggable: true,
+              itemStyle: {
+                normal: {
+                  shadowBlur: 100,
+                  shadowColor: colorData[14],
+                  color: colorData[14],
+                },
+              },
+            },
+            {
+              name: '31省区市心理援助热线',
+              value: 671,
+              symbolSize: 62,
+              draggable: true,
+              itemStyle: {
+                normal: {
+                  shadowBlur: 100,
+                  shadowColor: colorData[15],
+                  color: colorData[15],
+                },
+              },
+            },
+            {
+              name: '元宵节亮灯为武汉加油',
+              value: 27000,
+              symbolSize: 114,
+              draggable: true,
+              itemStyle: {
+                normal: {
+                  shadowBlur: 100,
+                  shadowColor: colorData[16],
+                  color: colorData[16],
+                },
+              },
+            },
+            {
+              name: '抗击新型肺炎我们在行动',
+              value: 10777000,
+              symbolSize: 130,
+              draggable: true,
+              itemStyle: {
+                normal: {
+                  shadowBlur: 100,
+                  shadowColor: colorData[17],
+                  color: colorData[17],
+                },
+              },
+            },
+            {
+              name: '疫情中的逆行者',
+              value: 92000,
+              symbolSize: 123,
+              draggable: true,
+              itemStyle: {
+                normal: {
+                  shadowBlur: 100,
+                  shadowColor: colorData[18],
+                  color: colorData[18],
+                },
+              },
+            },
+            {
+              name: '一张图看懂新冠肺炎',
+              value: 20000,
+              symbolSize: 141,
+              draggable: true,
+              itemStyle: {
+                normal: {
+                  shadowBlur: 100,
+                  shadowColor: colorData[19],
+                  color: colorData[19],
+                },
+              },
+              url: 'https://gallery.echartsjs.com/preview.html?c=xPLngHx_Z&v=1',
+            },
+          ],
+        },
+      ];
+
+      return ret;
+    },
+    getColorList() {
+      let ret = [
         [
           '#ff7f50',
           '#87cefa',
@@ -76,20 +370,16 @@ export default {
           '#f9e264',
           '#50c48f',
         ],
-      ][2],
-    };
-  },
-  mounted() {
-    //   构建好词云图
-    this.myCharts();
-  },
-  methods: {
+      ][2];
+
+      return ret;
+    },
     myCharts() {
       if (myChart != null && myChart != '' && myChart != undefined) {
         myChart.dispose();
       }
       // 基于准备好的dom，初始化echarts实例
-      myChart = this.$echarts.init(document.getElementById('main'));
+      myChart = this.$echarts.init(document.getElementById('wordCloud'));
       let option = {
         // 图表标题
         title: {
@@ -125,285 +415,7 @@ export default {
         },
         animationEasingUpdate: 'bounceIn',
         color: ['#fff', '#fff', '#fff'],
-        series: [
-          {
-            type: 'graph',
-            layout: 'force',
-            force: {
-              repulsion: 500,
-              edgeLength: 10,
-            },
-            roam: true,
-            label: {
-              normal: {
-                show: true,
-              },
-            },
-            data: [
-              {
-                name: '新冠肺炎愈后一般6个月内不会再得',
-                value: 2373,
-                symbolSize: 48,
-                draggable: true,
-                itemStyle: {
-                  normal: {
-                    shadowBlur: 100,
-                    shadowColor: colorList[0],
-                    color: colorList[0],
-                  },
-                },
-              },
-              {
-                name: '女篮两连胜后大喊武汉加油',
-                value: 5449,
-                symbolSize: 73,
-                draggable: true,
-                itemStyle: {
-                  normal: {
-                    shadowBlur: 100,
-                    shadowColor: colorList[1],
-                    color: colorList[1],
-                  },
-                },
-              },
-              {
-                name: '火神山医院开微博',
-                value: 2289,
-                symbolSize: 67,
-                draggable: true,
-                itemStyle: {
-                  normal: {
-                    shadowBlur: 100,
-                    shadowColor: colorList[2],
-                    color: colorList[2],
-                  },
-                },
-              },
-              {
-                name: '医疗队女队员集体理平头和光头',
-                value: 2518,
-                symbolSize: 50,
-                draggable: true,
-                itemStyle: {
-                  normal: {
-                    shadowBlur: 100,
-                    shadowColor: colorList[3],
-                    color: colorList[3],
-                  },
-                },
-              },
-              {
-                name: '缅怀疫情中逝去的人们',
-                value: 4730,
-                symbolSize: 88,
-                draggable: true,
-                itemStyle: {
-                  normal: {
-                    shadowBlur: 100,
-                    shadowColor: colorList[4],
-                    color: colorList[4],
-                  },
-                },
-              },
-              {
-                name: '妨害疫情防控的违法行为',
-                value: 1952,
-                symbolSize: 55,
-                draggable: true,
-                itemStyle: {
-                  normal: {
-                    shadowBlur: 100,
-                    shadowColor: colorList[5],
-                    color: colorList[5],
-                  },
-                },
-              },
-              {
-                name: '66岁重症患者8天快速康复',
-                value: 926,
-                symbolSize: 70,
-                draggable: true,
-                itemStyle: {
-                  normal: {
-                    shadowBlur: 100,
-                    shadowColor: colorList[6],
-                    color: colorList[6],
-                  },
-                },
-              },
-              {
-                name: '别让快递小哥一直等在寒风中',
-                value: 4536,
-                symbolSize: 67,
-                draggable: true,
-                itemStyle: {
-                  normal: {
-                    shadowBlur: 100,
-                    shadowColor: colorList[7],
-                    color: colorList[7],
-                  },
-                },
-              },
-              {
-                name: '湖北以外地区新增病例数连降5天',
-                value: 750,
-                symbolSize: 47,
-                draggable: true,
-                itemStyle: {
-                  normal: {
-                    shadowBlur: 100,
-                    shadowColor: colorList[8],
-                    color: colorList[8],
-                  },
-                },
-              },
-              {
-                name: '女儿写给战疫一线爸爸的信',
-                value: 493,
-                symbolSize: 82,
-                draggable: true,
-                itemStyle: {
-                  normal: {
-                    shadowBlur: 100,
-                    shadowColor: colorList[9],
-                    color: colorList[9],
-                  },
-                },
-              },
-              {
-                name: '青海连续3天无新增病例',
-                value: 385,
-                symbolSize: 59,
-                draggable: true,
-                itemStyle: {
-                  normal: {
-                    shadowBlur: 100,
-                    shadowColor: colorList[10],
-                    color: colorList[10],
-                  },
-                },
-              },
-              {
-                name: '辽宁再派1000名医护人员驰援武汉',
-                value: 4960,
-                symbolSize: 90,
-                draggable: true,
-                itemStyle: {
-                  normal: {
-                    shadowBlur: 100,
-                    shadowColor: colorList[11],
-                    color: colorList[11],
-                  },
-                },
-              },
-              {
-                name: '抗击新型肺炎第一线',
-                value: 8694000,
-                symbolSize: 134,
-                draggable: true,
-                itemStyle: {
-                  normal: {
-                    shadowBlur: 100,
-                    shadowColor: colorList[12],
-                    color: colorList[12],
-                  },
-                },
-              },
-              {
-                name: '12项疫情防控惠民政策',
-                value: 5668,
-                symbolSize: 75,
-                draggable: true,
-                itemStyle: {
-                  normal: {
-                    shadowBlur: 100,
-                    shadowColor: colorList[13],
-                    color: colorList[13],
-                  },
-                },
-              },
-              {
-                name: '战疫一线的别样团圆',
-                value: 339,
-                symbolSize: 68,
-                draggable: true,
-                itemStyle: {
-                  normal: {
-                    shadowBlur: 100,
-                    shadowColor: colorList[14],
-                    color: colorList[14],
-                  },
-                },
-              },
-              {
-                name: '31省区市心理援助热线',
-                value: 671,
-                symbolSize: 62,
-                draggable: true,
-                itemStyle: {
-                  normal: {
-                    shadowBlur: 100,
-                    shadowColor: colorList[15],
-                    color: colorList[15],
-                  },
-                },
-              },
-              {
-                name: '元宵节亮灯为武汉加油',
-                value: 27000,
-                symbolSize: 114,
-                draggable: true,
-                itemStyle: {
-                  normal: {
-                    shadowBlur: 100,
-                    shadowColor: colorList[16],
-                    color: colorList[16],
-                  },
-                },
-              },
-              {
-                name: '抗击新型肺炎我们在行动',
-                value: 10777000,
-                symbolSize: 130,
-                draggable: true,
-                itemStyle: {
-                  normal: {
-                    shadowBlur: 100,
-                    shadowColor: colorList[17],
-                    color: colorList[17],
-                  },
-                },
-              },
-              {
-                name: '疫情中的逆行者',
-                value: 92000,
-                symbolSize: 123,
-                draggable: true,
-                itemStyle: {
-                  normal: {
-                    shadowBlur: 100,
-                    shadowColor: colorList[18],
-                    color: colorList[18],
-                  },
-                },
-              },
-              {
-                name: '一张图看懂新冠肺炎',
-                value: 20000,
-                symbolSize: 141,
-                draggable: true,
-                itemStyle: {
-                  normal: {
-                    shadowBlur: 100,
-                    shadowColor: colorList[19],
-                    color: colorList[19],
-                  },
-                },
-                url: 'https://gallery.echartsjs.com/preview.html?c=xPLngHx_Z&v=1',
-              },
-            ],
-          },
-        ],
+        series: this.words,
       };
       //清空画布,防止缓存
       myChart.clear();
