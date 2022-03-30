@@ -12,47 +12,91 @@ const routes = [
     meta: { icon: 'el-icon-s-home', title: '首页' },
     component: () => import('@/views/Home'),
   },
-  // 资讯模块路由
+  // QU碳小课堂模块
   {
-    path: '/policy',
-    name: 'Policy',
-    meta: { icon: 'el-icon-tickets', title: '资讯' },
-    component: () => import('@/views/Policy'),
+    path: '/class',
+    name: 'Class',
+    redirect: '/knowledge',
+    meta: { icon: 'el-icon-tickets', title: 'QU碳小课堂' },
+    component: () => import('@/views/Class'),
+    children: [
+      // 知识子路由
+      {
+        path: '/knowledge',
+        name: 'Knowledge',
+        meta: { icon: 'el-icon-video-camera', title: 'QU知识' },
+        component: () => import('@/views/Class/Knowledge'),
+      },
+      // 视频模块子路由
+      {
+        path: '/video',
+        name: 'Video',
+        meta: { icon: 'el-icon-video-camera', title: 'QU视频' },
+        component: () => import('@/views/Class/Videos'),
+      },
+    ],
   },
-  // 活动模块路由
+  // QU碳一点通
   {
-    path: '/activity',
-    name: 'Activity',
-    meta: { icon: 'el-icon-s-flag', title: '活动' },
-    component: () => import('@/views/Activity'),
+    path: '/information',
+    name: 'Information',
+    meta: { icon: 'el-icon-s-flag', title: 'QU碳一点通' },
+    component: () => import('@/views/Information'),
+    children: [
+      // 新闻资讯子路由
+      {
+        path: '/news',
+        name: 'Information',
+        meta: { icon: 'el-icon-s-flag', title: '资讯' },
+        component: () => import('@/views/Information/News'),
+      },
+      // 活动模块子路由
+      {
+        path: '/activity',
+        name: 'Activity',
+        meta: { icon: 'el-icon-s-flag', title: '活动' },
+        component: () => import('@/views/Information/Activity'),
+      },
+      // 数据可视化模块子路由
+      {
+        path: '/echart',
+        name: 'Echart',
+        meta: { icon: 'el-icon-s-data', title: '可视化' },
+        component: () => import('@/views/Echarts'),
+      },
+    ],
   },
-  // 视频模块路由
-  {
-    path: '/video',
-    name: 'Video',
-    meta: { icon: 'el-icon-video-camera', title: '视频' },
-    component: () => import('@/views/Videos'),
-  },
-  // 数据可视化模块路由
-  {
-    path: '/echart',
-    name: 'Echart',
-    meta: { icon: 'el-icon-s-data', title: '可视化' },
-    component: () => import('@/views/Echarts'),
-  },
-  // 打卡论坛模块路由
+  // QU碳在行动
   {
     path: '/blog',
     name: 'Blog',
     meta: { icon: 'el-icon-s-flag', title: '低碳在行动' },
     component: () => import('@/views/Blog'),
+    children: [
+      // 个人中心模块路由
+      {
+        path: '/my',
+        name: 'My',
+        meta: { icon: 'el-icon-s-custom', title: '个人中心' },
+        component: () => import('@/views/My'),
+      },
+    ],
   },
-  // 个人中心模块路由
+  // QU碳办公室
   {
-    path: '/my',
-    name: 'My',
-    meta: { icon: 'el-icon-s-custom', title: '个人中心' },
-    component: () => import('@/views/My'),
+    path: '/office',
+    name: 'Office',
+    meta: { icon: 'el-icon-s-flag', title: '低碳办公室' },
+    component: () => import('@/views/Office'),
+    children: [
+      // 个人中心模块路由
+      {
+        path: '/my',
+        name: 'My',
+        meta: { icon: 'el-icon-s-custom', title: '个人中心' },
+        component: () => import('@/views/My'),
+      },
+    ],
   },
   // 401
   {
@@ -64,6 +108,6 @@ const routes = [
     path: '*',
     component: () => import('@/views/Error/404'),
   },
-];
+]
 
-export default routes;
+export default routes

@@ -105,7 +105,7 @@ hr {
 
 a:link,
 a:hover {
-  color: #42b983 !important;
+  /* color: #42b983 !important; */
   text-decoration: none;
 }
 

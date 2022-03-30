@@ -2,7 +2,7 @@
   <div>
     <!-- 轮播图 -->
     <div class="carousels">
-      <el-carousel :interval="4000" height="400px">
+      <el-carousel :interval="4000" height="528px">
         <el-carousel-item v-for="item in imgs" :key="item">
           <!-- 对图片进行懒加载 -->
           <img class="medium" v-lazy="item" alt="你的图片跑了！！！" />
