@@ -40,6 +40,7 @@ const routes = [
   {
     path: '/information',
     name: 'Information',
+    redirect: '/news',
     meta: { icon: 'el-icon-s-flag', title: 'QU碳一点通' },
     component: () => import('@/views/Information'),
     children: [
@@ -68,17 +69,23 @@ const routes = [
   },
   // QU碳在行动
   {
-    path: '/blog',
-    name: 'Blog',
+    path: '/action',
+    name: 'Action',
+    redirect: '/blog',
     meta: { icon: 'el-icon-s-flag', title: '低碳在行动' },
-    component: () => import('@/views/Blog'),
+    component: () => import('@/views/Action'),
     children: [
-      // 个人中心模块路由
       {
-        path: '/my',
-        name: 'My',
-        meta: { icon: 'el-icon-s-custom', title: '个人中心' },
-        component: () => import('@/views/My'),
+        path: '/blog',
+        name: 'Blog',
+        meta: { icon: 'el-icon-s-flag', title: 'QU动态' },
+        component: () => import('@/views/Action/Blog'),
+      },
+      {
+        path: '/actions',
+        name: 'Actions',
+        meta: { icon: 'el-icon-s-flag', title: 'QU行动' },
+        component: () => import('@/views/Action/Actions'),
       },
     ],
   },
@@ -88,15 +95,7 @@ const routes = [
     name: 'Office',
     meta: { icon: 'el-icon-s-flag', title: '低碳办公室' },
     component: () => import('@/views/Office'),
-    children: [
-      // 个人中心模块路由
-      {
-        path: '/my',
-        name: 'My',
-        meta: { icon: 'el-icon-s-custom', title: '个人中心' },
-        component: () => import('@/views/My'),
-      },
-    ],
+    children: [],
   },
   // 401
   {

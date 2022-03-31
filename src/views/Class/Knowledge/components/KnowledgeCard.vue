@@ -26,11 +26,13 @@
 <style scoped lang="less">
   .cards {
     display: flex;
+    margin: 4px 2px;
+    border-radius: 3px;
     li {
       display: flex;
       flex-direction: column;
       justify-content: space-around;
-      margin: 4px 2px;
+      padding: 4px 2px;
       cursor: pointer;
       img {
         width: 70px;
@@ -69,6 +71,12 @@
         -webkit-line-clamp: 4; //显示的行数
         -webkit-box-orient: vertical;
       }
+    }
+    &:nth-child(odd) {
+      background: #e2e2e2;
+    }
+    &:nth-child(even) {
+      background: #ffe868;
     }
   }
 </style>

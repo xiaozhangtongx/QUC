@@ -1,5 +1,7 @@
 <template>
-  <div>论坛</div>
+  <div class="action">
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>

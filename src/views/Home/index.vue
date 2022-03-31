@@ -142,9 +142,6 @@
             color: #fff;
             background-color: #1a967e;
             cursor: pointer;
-            &:hover {
-              color: #fff !important;
-            }
           }
         }
         div {

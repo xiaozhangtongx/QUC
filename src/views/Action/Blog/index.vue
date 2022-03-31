@@ -1,5 +1,5 @@
 <template>
-  <div>打卡</div>
+  <div>动态</div>
 </template>
 
 <script>

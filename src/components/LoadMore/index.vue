@@ -1,19 +1,14 @@
 <template>
   <div>
-    <WaterFall></WaterFall>
-    <p v-for="i in 50" :key="i">占一行</p>
+    <li><i class="el-icon-refresh"></i> 加载更多</li>
   </div>
 </template>
 
 <script>
-  import WaterFall from '@/components/WaterFall'
   export default {
     name: '',
     data() {
       return {}
-    },
-    components: {
-      WaterFall,
     },
     methods: {},
   }

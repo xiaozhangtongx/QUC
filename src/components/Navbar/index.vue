@@ -5,9 +5,11 @@
         <span class="content" :class="{ active: item.name == selectILi, animate__rollOut: item.name == selectILi }" @click="selected(item)"
           ><i :class="`${item.meta.icon}`" class="icons" />{{ item.meta.title }}</span
         >
-        <ul class="box">
-          <li v-for="(items, index) in item.children" :key="index" @click="selected(items)">{{ items.meta.title }}</li>
-        </ul>
+        <el-collapse-transition>
+          <ul class="box">
+            <li v-for="(items, index) in item.children" :key="index" @click="selected(items)">{{ items.meta.title }}</li>
+          </ul>
+        </el-collapse-transition>
       </li>
     </ul>
   </div>
