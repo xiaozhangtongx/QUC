@@ -27,6 +27,7 @@
   #app {
     width: 100%;
     height: 100%;
+    background-color: #f7f8f9;
     overflow-x: hidden;
   }
   .el-backtop {
