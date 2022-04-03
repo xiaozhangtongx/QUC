@@ -28,7 +28,6 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-
     article {
       display: flex;
       flex-direction: column;
@@ -56,7 +55,7 @@
       }
     }
     &:nth-child(odd) {
-      background: #e8e3e3;
+      background: #ffffff;
     }
     &:nth-child(even) {
       background: #ffe868;

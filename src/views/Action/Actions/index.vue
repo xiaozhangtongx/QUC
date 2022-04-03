@@ -1,5 +1,8 @@
 <template>
-  <div>我的</div>
+  <div id="actions">
+    <section></section>
+    <section></section>
+  </div>
 </template>
 
 <script>

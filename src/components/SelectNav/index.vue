@@ -39,7 +39,8 @@
       line-height: 8px;
       text-align: center;
       font-weight: 800;
-      background-color: #e8e3e3;
+      border-radius: 2px;
+      background-color: #ffffff;
       cursor: pointer;
       &:hover {
         color: #fff;

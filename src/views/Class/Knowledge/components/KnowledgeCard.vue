@@ -73,7 +73,7 @@
       }
     }
     &:nth-child(odd) {
-      background: #e2e2e2;
+      background: #ffffff;
     }
     &:nth-child(even) {
       background: #ffe868;
