@@ -11,8 +11,8 @@
         <li class="avatar">
           <el-avatar src="https://p.qqan.com/up/2020-8/15979703191215711.jpg"></el-avatar>
           <section class="info">
-            <p>小爱同学</p>
-            <p><span class="rank">1</span><span>1</span><span>1</span></p>
+            <p class="name">小爱同学</p>
+            <p><span class="c-coin">C币:</span> 12134</p>
           </section>
         </li>
         <li>
@@ -54,31 +54,30 @@
       flex: 1;
       padding-left: 6px;
       .user-info {
-        padding: 3px;
+        padding: 6px;
         border-radius: 3px;
         background-color: #fff;
         .avatar {
           display: flex;
           .info {
-            margin-left: 3px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            height: 13px;
+            margin-left: 5px;
             p {
-              display: flex;
-              justify-content: space-between;
               font-size: 3.7px;
               cursor: pointer;
               &:hover {
                 color: #0dbc79;
               }
-              span {
-                display: inline-block;
-                flex: 1;
-              }
-              .rank {
-                width: 100%;
-                background-image: url(https://static.nowcoder.com/images-nk/res/rank/4.png);
-                background-repeat: no-repeat;
-                background-size: 100%;
-              }
+            }
+            .name {
+              font-weight: 600;
+            }
+            .c-coin {
+              font-size: 3.7px;
+              font-weight: 600;
             }
           }
         }

@@ -23,9 +23,10 @@ import VueLazyload from 'vue-lazyload'
 Vue.use(VueLazyload)
 // flexible移动端适配
 import 'amfe-flexible'
-// 导入瀑布流组件
-import waterfall from 'vue-waterfall2'
-Vue.use(waterfall)
+// 导入处理日期的包
+import moment from 'moment'
+import 'moment/locale/zh-cn'
+Vue.prototype.$moment = moment
 
 Vue.prototype.$echarts = echarts
 Vue.config.productionTip = false

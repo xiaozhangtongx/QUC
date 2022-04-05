@@ -1,17 +1,23 @@
 <template>
-  <div>
-    <ul class="menu">
-      <li v-for="(item, index) in navItem" :key="index">
-        <span class="content" :class="{ active: item.name == selectILi, animate__rollOut: item.name == selectILi }" @click="selected(item)"
-          ><i :class="`${item.meta.icon}`" class="icons" />{{ item.meta.title }}</span
-        >
-        <el-collapse-transition>
-          <ul class="box">
-            <li v-for="(items, index) in item.children" :key="index" @click="selected(items)">{{ items.meta.title }}</li>
-          </ul>
-        </el-collapse-transition>
-      </li>
-    </ul>
+  <div class="navbar">
+    <div class="nav">
+      <ul>
+        <li v-for="(item, index) in navItem" :key="index">
+          <section>
+            <span class="content" :class="{ active: item.name == selectILi }" @click="selected(item)"><i :class="`${item.meta.icon}`" class="icons" />{{ item.meta.title }}</span>
+            <span class="content" :class="{ active: item.name == selectILi }" @click="selected(item)"><i :class="`${item.meta.icon}`" class="icons" />{{ item.meta.title }}</span>
+          </section>
+          <ol class="box">
+            <li v-for="(items, index) in item.children" :key="index" @click="selected(items)">
+              <section>
+                <span>{{ items.meta.title }}</span>
+                <span>{{ items.meta.title }}</span>
+              </section>
+            </li>
+          </ol>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -51,59 +57,103 @@
 </script>
 
 <style scoped lang="less">
-  .menu {
-    display: flex;
-    justify-content: space-between;
+  @hight: 13px;
+  .navbar {
+    position: relative;
     width: 100%;
+    background-color: #fff;
     padding: 0 30px;
-    box-shadow: 0 1px 4px #dadada;
-    background-color: #f7f7f7;
-    & > li {
-      text-align: center;
-      width: 40px;
-      height: 10px;
-      cursor: pointer;
-      transition: 0.6s all;
-      &:hover {
-        width: 50px;
-        transition: all 0.3s ease-in-out;
-        background: linear-gradient(to right, #41eeba, #0dbc79);
-        > ul {
-          visibility: inherit;
-        }
-      }
-      .content {
+    z-index: 10000;
+    /* 盒子阴影 */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    .nav {
+      width: 100%;
+      height: 100%;
+      /* 让元素自动水平居中 */
+      margin: 0 auto;
+      ul {
+        /* 弹性布局 */
         display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 10px;
-        width: 50px;
-        font-size: 4px;
-      }
-      .box {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-        visibility: hidden;
-        & > li {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          width: 50px;
-          height: 10px;
-          font-size: 4px;
-          border-bottom: 0.5px solid #ffffff;
-          z-index: 1000;
-          background-color: #eee;
-          &:hover {
-            width: 50px;
-            transition: all 0.3s ease-in-out;
-            background: linear-gradient(to right, #41eeba, #0dbc79);
+        /* 让子元素平均分配宽度 */
+        justify-content: space-around;
+        width: 100%;
+        height: 100%;
+        li {
+          width: 100%;
+          height: @hight;
+          &:hover > ol {
+            transform: scaleY(1);
+          }
+          ol {
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            /* 让盒子先沿着y轴缩放到0 也就是隐藏了 */
+            transform: scaleY(0);
+            /* 我们需要将盒子从上面滑动下来 设置一下缩放的中心点即可 设置到最上面的中间位置 */
+            transform-origin: 50% 0;
+            /* 设置过渡 */
+            transition: all 0.6s;
+            li {
+              height: @hight;
+              border-bottom: 1px solid rgb(245, 245, 245);
+              z-index: 100000;
+              &:hover {
+                background-color: rgba(0, 0, 0, 0.03);
+              }
+            }
           }
         }
       }
+    }
+    section {
+      position: relative;
+      width: 100%;
+      height: @hight;
+      text-align: center;
+      line-height: @hight;
+      text-transform: uppercase;
+      text-decoration: none;
+      letter-spacing: 2px;
+      overflow: hidden;
+      &:hover > span {
+        transition: 0.4s ease-in;
+        transform: translateY(-100%);
+        color: #fff;
+        font-weight: 600;
+      }
+      &::before {
+        content: '';
+        position: absolute;
+        bottom: -37px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 67px;
+        height: 37px;
+        background: #0dbc79;
+        border-radius: 50%;
+        transition: 0.4s ease-in;
+      }
+      &:hover::before {
+        bottom: -13px;
+      }
+      &::nth-child(2)::before {
+        bottom: 20px;
+      }
+      &::nth-child(2):hover::before {
+        bottom: -10px;
+      }
+    }
+    span {
+      display: block;
+      width: 100%;
+      height: 100%;
+      line-height: @hight;
+      text-align: center;
+      font-size: 4px;
+      z-index: 1000;
+      transition: 0s ease-in;
+      cursor: pointer;
     }
   }
   .active {

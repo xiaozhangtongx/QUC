@@ -2,12 +2,7 @@
   <div>
     <!-- 轮播图 -->
     <div class="carousels">
-      <el-carousel :interval="4000" height="528px">
-        <el-carousel-item v-for="item in imgs" :key="item">
-          <!-- 对图片进行懒加载 -->
-          <img class="medium" v-lazy="item" alt="你的图片跑了！！！" />
-        </el-carousel-item>
-      </el-carousel>
+      <Wrapper></Wrapper>
     </div>
     <!-- 首页主体部分 -->
     <div class="home-top">
@@ -61,6 +56,7 @@
   import HomeVideo from './components/HomeVideo'
   import HomeActive from './components/HomeActive'
   import HomeAction from './components/HomeAction'
+  import Wrapper from '@/components/Wrapper'
   export default {
     name: '',
     data() {
@@ -73,6 +69,7 @@
       HomeVideo,
       HomeActive,
       HomeAction,
+      Wrapper,
     },
     methods: {
       // 获取images文件夹下面的图片
@@ -94,30 +91,10 @@
   /*------------------------------轮播图样式------------------------------*/
   .carousels {
     width: 100%;
-    padding: 0 30px;
+    padding: 10px 30px;
     overflow: hidden;
-    .medium {
-      width: 100%;
-      cursor: pointer;
-      transition: all 0.6s;
-      &:hover {
-        transform: scale(1.3);
-      }
-    }
-  }
-  /deep/.el-carousel__button {
-    display: block;
-    opacity: 0.48;
-    width: 2px;
-    height: 2px;
-    border-radius: 2px;
-    background-color: #13c281;
   }
 
-  /deep/.el-carousel__arrow {
-    width: 0;
-    height: 0;
-  }
   /*------------------------------首页主体样式------------------------------*/
   // 首页一些公共样式
   .home-top,

@@ -5,7 +5,10 @@
     <el-backtop>
       <i class="el-icon-caret-top"></i>
     </el-backtop>
-    <router-view />
+
+    <transition name="direction">
+      <router-view class="direction-view"></router-view>
+    </transition>
     <Footer></Footer>
   </div>
 </template>
@@ -26,7 +29,7 @@
 <style lang="less">
   #app {
     width: 100%;
-    height: 100%;
+    // height: 100vh;
     background-color: #f7f8f9;
     overflow-x: hidden;
   }
@@ -38,5 +41,13 @@
   .el-icon-caret-top {
     font-size: 8px;
     color: #0dbc79;
+  }
+  .direction-enter,
+  .direction-leave-to {
+    transform: translate3d(100%, 0, 0);
+  }
+
+  .direction-view {
+    transition: all 0.5s ease;
   }
 </style>
