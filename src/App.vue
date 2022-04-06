@@ -1,31 +1,25 @@
 <template>
-  <div id="app">
-    <Header></Header>
-    <Navbar></Navbar>
+  <div>
     <el-backtop>
       <i class="el-icon-caret-top"></i>
     </el-backtop>
-
     <transition name="direction">
       <router-view class="direction-view"></router-view>
     </transition>
-    <Footer></Footer>
   </div>
 </template>
 
 <script>
-  // 头部组件
-  import Header from '@/components/Header'
-  // 导航栏
-  import Navbar from '@/components/Navbar'
-  // 尾部组件
-  import Footer from '@/components/Footer'
   export default {
-    name: 'App',
-    components: { Header, Navbar, Footer },
+    name: 'app',
+    data() {
+      return {}
+    },
+    methods: {},
   }
 </script>
 
+<<<<<<< HEAD
 <style lang="less">
   #app {
     width: 100%;
