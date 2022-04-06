@@ -1,3 +1,4 @@
+var webpack = require('webpack');
 module.exports = {
   publicPath: './',
   runtimeCompiler: true,
@@ -35,4 +36,13 @@ module.exports = {
     // },
     disableHostCheck: true,
   },
-}
+  configureWebpack: {
+    plugins: [
+      new webpack.ProgressPlugin({
+        $: 'jquery',
+        jQuery: 'jquery',
+        'windows.jQuery': 'jquery',
+      }),
+    ],
+  },
+};
