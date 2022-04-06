@@ -1,35 +1,23 @@
 <template>
-  <div id="app">
-    <Header></Header>
-    <Navbar></Navbar>
+  <div>
     <el-backtop>
       <i class="el-icon-caret-top"></i>
     </el-backtop>
-    <router-view />
-    <Footer></Footer>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-  // 头部组件
-  import Header from '@/components/Header'
-  // 导航栏
-  import Navbar from '@/components/Navbar'
-  // 尾部组件
-  import Footer from '@/components/Footer'
   export default {
-    name: 'App',
-    components: { Header, Navbar, Footer },
+    name: 'app',
+    data() {
+      return {}
+    },
+    methods: {},
   }
 </script>
 
-<style lang="less">
-  #app {
-    width: 100%;
-    height: 100%;
-    background-color: #f7f8f9;
-    overflow-x: hidden;
-  }
+<style scoped lang="less">
   .el-backtop {
     width: 10px !important;
     height: 10px !important;

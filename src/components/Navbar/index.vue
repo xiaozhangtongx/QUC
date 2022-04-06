@@ -16,10 +16,12 @@
 </template>
 
 <script>
+  import routes_main from '@/router/routes_main'
   export default {
     name: '',
     data() {
-      let menuData = this.getMenuData(this.$router.options.routes)
+      let menuData = this.getMenuData(routes_main[0].children)
+      console.log(routes_main[0].children)
       return {
         // 导航栏数据
         navItem: menuData,
