@@ -10,6 +10,10 @@ const routes = [
     path: '/home-page',
     component: () => import('@/views/HomePage'),
   },
+  {
+    path: '/waterfall',
+    component: () => import('@/components/WaterFall'),
+  },
 
   // 401
   {
@@ -21,6 +25,6 @@ const routes = [
     path: '*',
     component: () => import('@/views/Error/404'),
   },
-]
+];
 
-export default routes
+export default routes;
