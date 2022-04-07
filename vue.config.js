@@ -38,7 +38,7 @@ module.exports = {
   },
   configureWebpack: {
     plugins: [
-      new webpack.ProgressPlugin({
+      new webpack.ProvidePlugin({
         $: 'jquery',
         jQuery: 'jquery',
         'windows.jQuery': 'jquery',
