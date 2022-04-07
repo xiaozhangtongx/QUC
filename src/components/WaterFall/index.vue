@@ -22,6 +22,7 @@ export default {
     getItems() {
       var title = ['低碳'],
         description = ['这是关于低碳的描述'],
+        hrefLink = [],
         items = [];
       let imgs = require
         .context('./images/', false, /.jpg$/)
@@ -34,7 +35,8 @@ export default {
         items.push({
           Img: element,
           title: '低碳',
-          description: '这是关于低碳的描述',
+          description:
+            '低碳，是指较低的温室气体（二氧化碳为主）排放。节水、节电、节油、节气，是我们倡导的低碳生活方式。',
           hrefLink: '#',
         });
       });
@@ -203,6 +205,17 @@ export default {
 </script>
 
 <style lang="less" scoped>
+p {
+  margin: 6px 0 2px 0;
+  width: 100%;
+  text-indent: 2em;
+  overflow: hidden;
+  word-wrap: break-word;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; //显示的行数
+  -webkit-box-orient: vertical;
+}
 #gallery-wrapper {
   position: relative;
   max-width: 75%;
