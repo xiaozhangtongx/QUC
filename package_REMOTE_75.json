@@ -13,11 +13,7 @@
     "core-js": "^3.6.5",
     "echarts": "^5.3.1",
     "element-ui": "^2.15.6",
-<<<<<<< HEAD
-    "moment": "^2.29.2",
-=======
     "jquery": "^3.6.0",
->>>>>>> 4582ecfe1260d7d58993e99d57a2d26fbc7e00c4
     "nprogress": "^0.2.0",
     "postcss-pxtorem": "^5.1.1",
     "vue": "^2.6.11",
