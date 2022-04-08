@@ -59,8 +59,7 @@
     transform: translateZ(-1px) scale(1.6);
     background-size: cover;
     height: 100vh;
-    /* background-image: url('./images/1.jpg') !important; */
-    z-index: -1;
+    /* z-index: -1; */
   }
 
   .text {
@@ -73,7 +72,7 @@
   }
 
   .heading {
-    z-index: -1;
+    /* z-index: -1; */
     transform: translateY(-30vh) translateZ(1px);
     color: #fff;
     font-size: 30px;

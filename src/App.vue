@@ -19,7 +19,6 @@
   }
 </script>
 
-<<<<<<< HEAD
 <style lang="less">
   #app {
     width: 100%;

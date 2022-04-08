@@ -42,14 +42,15 @@
       border-radius: 2px;
       background-color: #ffffff;
       cursor: pointer;
+      transition: all 0.2s linear;
       &:hover {
         color: #fff;
-        background-color: #1a967e;
+        background: linear-gradient(90deg, #cbee41, #0dbc79);
       }
     }
     .active {
       color: #fff;
-      background-color: #1a967e;
+      background: linear-gradient(90deg, #cbee41, #0dbc79);
     }
   }
 </style>

@@ -10,7 +10,13 @@ const routes = [
     path: '/home-page',
     component: () => import('@/views/HomePage'),
   },
-
+  // 可视化
+  {
+    path: '/echart',
+    name: 'Echart',
+    meta: { icon: 'el-icon-s-data', title: '可视化' },
+    component: () => import('@/views/Echarts'),
+  },
   // 401
   {
     path: '/401',

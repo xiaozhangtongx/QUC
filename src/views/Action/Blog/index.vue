@@ -7,7 +7,7 @@
     </section>
     <section class="right">
       <!-- 用户信息 -->
-      <div class="user-info">
+      <div class="user-info box">
         <li class="avatar">
           <el-avatar src="https://p.qqan.com/up/2020-8/15979703191215711.jpg"></el-avatar>
           <section class="info">
@@ -87,5 +87,30 @@
   .el-avatar {
     width: 13px;
     height: 13px;
+  }
+  // 盒子样式
+  .box {
+    padding: 6px;
+    margin-bottom: 6px;
+    border-radius: 3px;
+    background-color: #fff;
+    transition: all 0.3s linear;
+    .label {
+      font-size: 4.6px;
+      margin-bottom: 3px;
+      &::before {
+        content: ' ';
+        display: inline-block;
+        width: 3.7px;
+        height: 3.7px;
+        border-radius: 50%;
+        margin-right: 2.4px;
+        background-color: #0dbc79;
+      }
+    }
+    &:hover {
+      transform: translateX(-1px);
+      box-shadow: rgb(215, 215, 215) 0px 0px 4px 1px;
+    }
   }
 </style>

@@ -1,10 +1,10 @@
 <template>
   <!-- 答题卡 -->
   <div id="answer-card">
-    <p>每日一题：{{ questionInfo.question }}</p>
+    <p class="questionInfo">{{ questionInfo.question }}</p>
     <ul>
       <li v-for="item in questionInfo.options" :key="item.id">
-        <input type="radio" :name="item.id" :id="item.id" />
+        <input type="radio" :name="item.id" :id="item.id" :value="item.id" v-model="param" />
         <label :for="item.id">{{ item.text }}</label>
       </li>
     </ul>
@@ -21,6 +21,8 @@
     },
     data() {
       return {
+        // 答题卡
+        param: '',
         // 每日一题数据
         questionInfo: {
           question: '提出碳中和的背景是？',
@@ -40,6 +42,18 @@
 
 <style scoped lang="less">
   #answer-card {
-    background-color: #fff;
+    .questionInfo {
+      font-weight: 600;
+      font-size: 4.2px;
+    }
+    li {
+      margin: 2px;
+      input {
+        margin-right: 3px;
+      }
+      label {
+        font-size: 4.2px;
+      }
+    }
   }
 </style>

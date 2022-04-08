@@ -62,10 +62,10 @@ const routes_main = [
           },
           // 数据可视化模块子路由
           {
-            path: '/echart',
+            path: '/echarts',
+            redirect: '/echart',
             name: 'Echart',
             meta: { icon: 'el-icon-s-data', title: '可视化' },
-            component: () => import('@/views/Echarts'),
           },
         ],
       },

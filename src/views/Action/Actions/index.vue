@@ -2,7 +2,15 @@
   <div id="action">
     <section class="left">
       <!-- 每日一题 -->
-      <AnswerCard class="box"></AnswerCard>
+      <div class="box">
+        <h2 class="label">每日一题</h2>
+        <AnswerCard></AnswerCard>
+      </div>
+      <!-- 每日任务 -->
+      <div class="box">
+        <h2 class="label">今日任务</h2>
+        <AnswerCard></AnswerCard>
+      </div>
     </section>
 
     <section class="right">
@@ -45,6 +53,11 @@
           </li>
         </div>
       </div>
+      <!-- 排行榜 -->
+      <div class="box">
+        <h2 class="label">实时排行榜</h2>
+        <RankList></RankList>
+      </div>
     </section>
   </div>
 </template>
@@ -52,11 +65,13 @@
 <script>
   import ClickButton from '@/components/ClickButton'
   import AnswerCard from '@/components/AnswerCard'
+  import RankList from '@/components/RankList'
   export default {
     name: '',
     components: {
       ClickButton,
       AnswerCard,
+      RankList,
     },
     data() {
       return {
@@ -154,6 +169,19 @@
     border-radius: 3px;
     background-color: #fff;
     transition: all 0.3s linear;
+    .label {
+      font-size: 4.6px;
+      margin-bottom: 3px;
+      &::before {
+        content: ' ';
+        display: inline-block;
+        width: 3.7px;
+        height: 3.7px;
+        border-radius: 50%;
+        margin-right: 2.4px;
+        background-color: #0dbc79;
+      }
+    }
     &:hover {
       transform: translateX(-1px);
       box-shadow: rgb(215, 215, 215) 0px 0px 4px 1px;
