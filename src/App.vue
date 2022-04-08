@@ -29,7 +29,7 @@
   .el-backtop {
     width: 10px !important;
     height: 10px !important;
-    font-size: 2px;
+    font-size: 2px !important;
   }
   .el-icon-caret-top {
     font-size: 8px;
