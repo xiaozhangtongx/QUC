@@ -17,6 +17,10 @@ const routes = [
     meta: { icon: 'el-icon-s-data', title: '可视化' },
     component: () => import('@/views/Echarts'),
   },
+  {
+    path: '/waterfall',
+    component: () => import('@/components/WaterFall'),
+  },
   // 401
   {
     path: '/401',
@@ -27,6 +31,6 @@ const routes = [
     path: '*',
     component: () => import('@/views/Error/404'),
   },
-]
+];
 
-export default routes
+export default routes;
