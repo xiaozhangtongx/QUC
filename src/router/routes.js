@@ -3,7 +3,7 @@ const routes = [
   // 路由重定向，默认打开Home页
   {
     path: '',
-    redirect: '/home-page',
+    redirect: '/home',
   },
   // HomePage页面
   {
@@ -31,6 +31,6 @@ const routes = [
     path: '*',
     component: () => import('@/views/Error/404'),
   },
-];
+]
 
-export default routes;
+export default routes

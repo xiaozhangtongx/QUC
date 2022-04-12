@@ -1,7 +1,7 @@
 <template>
   <section id="gallery-wrapper">
     <article class="white-panel" v-for="(item, index) in items" :key="index">
-      <img :src="item.Img" class="thumb" />
+      <img v-lazy="item.Img" class="thumb" />
       <h1>
         <a href="#">{{ item.title }}</a>
       </h1>
@@ -212,7 +212,7 @@
     position: relative;
     max-width: 75%;
     width: 75%;
-    margin: 50px auto;
+    margin: 10px auto;
   }
   img.thumb {
     width: 100%;
@@ -225,6 +225,7 @@
     border-radius: 0.1rem;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
     padding: 0.2rem;
+    transition: all 0.3s linear;
   }
   .white-panel h1 {
     font-size: 1em;
@@ -234,10 +235,6 @@
   }
   .white-panel:hover {
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
-    margin-top: -5px;
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
+    margin-top: -2px;
   }
 </style>

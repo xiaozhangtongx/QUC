@@ -1,0 +1,25 @@
+.box-global {
+  padding: 16px;
+  margin-bottom: 17px;
+  border-radius: 13px;
+  background-color: #fff;
+  box-shadow: 2px 2px 7px #dbd9e9;
+  transition: all 0.3s linear;
+}
+.box-global .label {
+  font-size: 21px;
+  margin-bottom: 13px;
+}
+.box-global .label::before {
+  content: ' ';
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  margin-right: 6px;
+  background-color: #0dbc79;
+}
+.box-global:hover {
+  transform: translateX(-3px);
+  box-shadow: #d7d7d7 0px 0px 8px 6px;
+}

@@ -1,203 +1,200 @@
 <template>
-  <div>
-    <!-- 轮播图 -->
-    <div class="carousels">
-      <Wrapper></Wrapper>
+  <div class="main">
+    <!-- 轮播图模块 -->
+    <Wrapper></Wrapper>
+    <div id="home">
+      <section class="left">
+        <!-- 去碳小知识 -->
+        <div class="box-global knowledge">
+          <h2 class="label">QU碳小知识</h2>
+          <div class="knowledge-card">
+            <Cards class="card" v-for="(item, index) in 6" :key="index">
+              <img v-lazy="`https://qucs.oss-cn-hangzhou.aliyuncs.com/images/${index}.jpg`" slot="media" />
+              <p slot="content" class="content">xxx1231dasdasdasdasdasdasdasdasdasdasdasdasdsadasdasdasdasdasdasdadas</p>
+            </Cards>
+          </div>
+        </div>
+      </section>
+      <section class="right">
+        <!-- 用户信息 -->
+        <div class="box-global user-info">
+          <div class="info-top">
+            <li class="avatar">
+              <el-avatar src="https://p.qqan.com/up/2020-8/15979703191215711.jpg"></el-avatar>
+              <section class="info">
+                <p class="name">小爱同学</p>
+                <p><span class="c-coin">C币:</span> 12134</p>
+              </section>
+            </li>
+            <li>
+              <ClickButton>个人中心</ClickButton>
+            </li>
+          </div>
+          <div class="info-bottom">
+            <li><span>点赞</span><span>收藏</span><span>排名</span><span>浏览总量</span></li>
+            <li>
+              <span>{{ info.like }}</span>
+              <span>{{ info.collect }}</span>
+              <span>{{ info.rank }}</span>
+              <span>{{ info.total }}</span>
+            </li>
+          </div>
+        </div>
+        <!-- 排行榜 -->
+        <div class="box-global">
+          <h2 class="label">低碳排行榜</h2>
+          <RankList></RankList>
+        </div>
+      </section>
     </div>
-    <!-- 首页主体部分 -->
-    <div class="home-top">
-      <!-- 首页主体左侧部分 -->
-      <section class="home-top-left">
-        <!-- 相关资讯 -->
-        <li class="home-policy">
-          <h2><router-link to="./policy">低碳资讯</router-link></h2>
-          <div>
-            <PolicyCards v-for="item in imgs" :key="item" :imgs="item" class="card"></PolicyCards>
-          </div>
-        </li>
-        <li class="home-video">
-          <h2><router-link to="./video">低碳视频</router-link></h2>
-          <div>
-            <HomeVideo v-for="item in 4" :key="item" class="video"></HomeVideo>
-          </div>
-        </li>
-      </section>
-      <!-- 首页主体右侧部分 -->
-      <section class="home-top-right">
-        <li class="home-rank">
-          <h2><router-link to="./my">低碳在行动</router-link></h2>
-          <div>
-            <HomeAction></HomeAction>
-          </div>
-        </li>
-        <li class="home-show">
-          <h2><router-link to="./my">数据可视化</router-link></h2>
-          <div>
-            <img src="./images/V1.jpg" alt="" />
-          </div>
-        </li>
-      </section>
-    </div>
-    <div class="home-bottom">
-      <section>
-        <li class="home-activity">
-          <h2><router-link to="./activity">低碳活动</router-link></h2>
-          <div class="activity-card">
-            <HomeActive v-for="item in imgs" :key="item" :imgs="item" class="card"></HomeActive>
-          </div>
-        </li>
-      </section>
+    <div class="box-global video-card">
+      <h2 class="label">QU碳小视频</h2>
+      <div class="video">
+        <video controls="controls" muted="muted" autoplay="autoplay" src="" v-for="(item, index) in 6" :key="index"></video>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-  import PolicyCards from './components/PolicyCards'
-  import HomeVideo from './components/HomeVideo'
-  import HomeActive from './components/HomeActive'
-  import HomeAction from './components/HomeAction'
   import Wrapper from '@/components/Wrapper'
+  import ClickButton from '@/components/ClickButton'
+  import Cards from '@/components/Cards'
+  import RankList from '@/components/RankList'
   export default {
     name: '',
+    components: {
+      Wrapper,
+      ClickButton,
+      Cards,
+      RankList,
+    },
     data() {
       return {
-        imgs: [],
+        rank: 0,
+        count: 0,
+        info: {
+          like: 45,
+          collect: 46,
+          rank: 1950,
+          total: 1236,
+        },
       }
     },
-    components: {
-      PolicyCards,
-      HomeVideo,
-      HomeActive,
-      HomeAction,
-      Wrapper,
-    },
-    methods: {
-      // 获取images文件夹下面的图片
-      getImgs() {
-        let res = require.context('./images/', false, /.jpg$/).keys()
-        this.imgs = res.map((item) => {
-          let img = './images/' + item.replace('./', '')
-          return require(img + '')
-        })
-      },
-    },
-    created() {
-      this.getImgs()
-    },
+    methods: {},
   }
 </script>
 
 <style scoped lang="less">
-  /*------------------------------轮播图样式------------------------------*/
-  .carousels {
-    width: 100%;
+  .main {
     padding: 10px 30px;
-    overflow: hidden;
+    #home {
+      margin-top: 19px;
+      display: flex;
+      .left {
+        flex: 2;
+        .knowledge {
+          width: 100%;
+          .knowledge-card {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            .card {
+              overflow: hidden;
+              width: 32%;
+              margin-bottom: 4.42px;
+              img {
+                width: 100%;
+                transition: all 0.5s linear;
+              }
+              &:hover {
+                img {
+                  transform: scale(1.1);
+                }
+              }
+            }
+          }
+        }
+      }
+      .right {
+        flex: 1;
+        padding-left: 6px;
+        .punch-card {
+          display: flex;
+          justify-content: space-around;
+          li {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+        .user-info {
+          .info-top {
+            display: flex;
+            justify-content: space-around;
+            .avatar {
+              display: flex;
+              .info {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                height: 13px;
+                margin-left: 5px;
+
+                .name {
+                  font-weight: 600;
+                }
+                .c-coin {
+                  font-size: 3.7px;
+                  font-weight: 600;
+                }
+              }
+            }
+          }
+          .info-bottom {
+            li {
+              display: flex;
+              justify-content: space-around;
+              align-items: center;
+              margin-top: 3px;
+              span {
+                flex: 1;
+                font-size: 3.7px;
+                text-align: center;
+              }
+            }
+          }
+        }
+      }
+    }
+    // 视频卡片
+    .video-card {
+      margin-top: 6px;
+      .video {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        video {
+          width: 32%;
+          margin-bottom: 6px;
+        }
+      }
+    }
   }
 
-  /*------------------------------首页主体样式------------------------------*/
-  // 首页一些公共样式
-  .home-top,
-  .home-bottom {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding: 6px 30px;
-    > section {
-      overflow: hidden;
-      li {
-        padding: 0 0 6px 0;
-        > h2 {
-          height: 11px;
-          border-bottom: 0.5px solid #eee;
-          > a {
-            display: inline-block;
-            width: 20px;
-            height: 7px;
-            text-align: center;
-            line-height: 7px;
-            color: #fff;
-            background-color: #1a967e;
-            cursor: pointer;
-          }
-        }
-        div {
-          width: 100%;
-          display: flex;
-          justify-content: space-between;
-          flex-wrap: wrap;
-          div {
-            margin: 1px 0 3px 0;
-            border-radius: 3px;
-            cursor: pointer;
-            transition: all 0.3s linear;
-            &:hover {
-              transform: translateY(-3px);
-              box-shadow: rgb(189, 186, 186) 0px 0px 3px 2px;
-            }
-          }
-        }
-      }
-    }
+  // 头像的大小
+  .el-avatar {
+    width: 13px;
+    height: 13px;
   }
-  // 首页上部分样式
-  .home-top {
-    height: 340px;
-    .home-top-left {
-      width: 74%;
-      flex: 3;
-      .card {
-        width: 32%;
-      }
-      // 视频部分
-      .video {
-        width: 49%;
-      }
-    }
-    .home-top-right {
-      flex: 1;
-      width: 24%;
-      padding-left: 6px;
-      .home-rank,
-      .home-show {
-        height: 60%;
-        > div {
-          div {
-            &:hover {
-              transform: none;
-              box-shadow: none;
-            }
-          }
-        }
-      }
-      .home-show {
-        height: 40%;
-      }
-    }
-  }
-  // 首页下部分样式
-  .home-bottom {
-    // 活动卡片部分
-    .activity-card {
-      display: flex;
-      flex-wrap: nowrap;
-      margin-right: 5px;
-      animation: move 10s linear infinite; /*循环播放 匀速*/
-      .card {
-        width: 20%;
-        margin-right: 5px;
-      }
-      &:hover {
-        animation-play-state: paused;
-      }
-      @keyframes move {
-        form {
-          transform: translateX(0);
-        }
-        to {
-          transform: translateX(-20%);
-        }
-      }
+  // 定义字体的大小
+  p {
+    font-size: 4.2px;
+    font-weight: 600;
+    cursor: pointer;
+    &:hover {
+      color: #0dbc79;
     }
   }
 </style>

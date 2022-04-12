@@ -60,21 +60,22 @@ const routes_main = [
             meta: { icon: 'el-icon-s-flag', title: '活动' },
             component: () => import('@/views/Information/Activity'),
           },
-          // 数据可视化模块子路由
-          {
-            path: '/echarts',
-            redirect: '/echart',
-            name: 'Echart',
-            meta: { icon: 'el-icon-s-data', title: '可视化' },
-          },
         ],
+      },
+      // QU碳办公室
+      {
+        path: '/office',
+        name: 'Office',
+        meta: { icon: 'el-icon-s-management', title: '低碳办公室' },
+        component: () => import('@/views/Office'),
+        children: [],
       },
       // QU碳在行动
       {
         path: '/action',
         name: 'Action',
         redirect: '/blog',
-        meta: { icon: 'el-icon-s-flag', title: '低碳在行动' },
+        meta: { icon: 'el-icon-user-solid', title: '低碳在行动' },
         component: () => import('@/views/Action'),
         children: [
           {
@@ -90,14 +91,6 @@ const routes_main = [
             component: () => import('@/views/Action/Actions'),
           },
         ],
-      },
-      // QU碳办公室
-      {
-        path: '/office',
-        name: 'Office',
-        meta: { icon: 'el-icon-s-flag', title: '低碳办公室' },
-        component: () => import('@/views/Office'),
-        children: [],
       },
     ],
   },

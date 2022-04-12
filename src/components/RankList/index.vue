@@ -8,7 +8,6 @@
         <div class="content"><span>name</span><span>grides</span></div>
       </li>
     </ul>
-    <li class="reload">刷新</li>
   </div>
 </template>
 

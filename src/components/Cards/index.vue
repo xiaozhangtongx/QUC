@@ -1,6 +1,8 @@
 <template>
   <div class="policy-card">
-    <slot name="media"></slot>
+    <div class="media">
+      <slot name="media"></slot>
+    </div>
     <article>
       <div class="title">
         <slot name="title"></slot>
@@ -28,13 +30,16 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    border-radius: 3.1px;
+    box-shadow: 1px 1px 7px #dbd9e9;
+    transition: all 0.3s linear;
     article {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       p {
-        margin: 6px 0;
+        margin: 3px 2px;
         width: 60px;
         text-indent: 2em;
         overflow: hidden;
@@ -53,12 +58,6 @@
           color: #0dbc79;
         }
       }
-    }
-    &:nth-child(odd) {
-      background: #ffffff;
-    }
-    &:nth-child(even) {
-      background: #ffe868;
     }
   }
 </style>

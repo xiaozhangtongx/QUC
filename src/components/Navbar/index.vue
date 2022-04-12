@@ -152,7 +152,8 @@
       height: 100%;
       line-height: @hight;
       text-align: center;
-      font-size: 4px;
+      font-size: 4.2px;
+      font-weight: 600;
       z-index: 1000;
       transition: 0s ease-in;
       cursor: pointer;
@@ -161,7 +162,6 @@
   .active {
     background: linear-gradient(to right, #41eeba, #0dbc79);
     color: #fff !important;
-    font-weight: 600;
   }
   .icons {
     margin-right: 5px;

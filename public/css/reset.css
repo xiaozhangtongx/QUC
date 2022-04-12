@@ -117,31 +117,3 @@ a:hover {
   clear: both;
   visibility: hidden;
 }
-
-/*全局盒子样式*/
-.box-basic {
-  padding: 6px;
-  margin-bottom: 6px;
-  border-radius: 3px;
-  background-color: #fff;
-  transition: all 0.3s linear;
-}
-
-.box-basic .label {
-  font-size: 4.6px;
-  margin-bottom: 3px;
-}
-.box-basic .label :hover {
-  transform: translateX(-1px);
-  box-shadow: rgb(215, 215, 215) 0px 0px 4px 1px;
-}
-
-.box-basic .label::before {
-  content: ' ';
-  display: inline-block;
-  width: 3.7px;
-  height: 3.7px;
-  border-radius: 50%;
-  margin-right: 2.4px;
-  background-color: #0dbc79;
-}
