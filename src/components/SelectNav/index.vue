@@ -33,15 +33,18 @@
     display: flex;
     border-bottom: 0.3px solid #000;
     li {
-      margin: 6px 10px 4px 0;
-      width: 20px;
+      width: 26px;
       height: 8px;
+      margin: 6px 10px 4px 0;
+      padding: 0 3px;
       line-height: 8px;
       text-align: center;
-      font-weight: 800;
+      font-size: 3.7px;
+      font-weight: 600;
       border-radius: 2px;
       background-color: #ffffff;
       cursor: pointer;
+      box-shadow: 0.02667rem 0.02667rem 0.18667rem #dbd9e9;
       transition: all 0.2s linear;
       &:hover {
         color: #fff;

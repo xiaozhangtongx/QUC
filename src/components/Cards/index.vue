@@ -41,6 +41,7 @@
       p {
         margin: 3px 2px;
         width: 60px;
+        font-size: 4.2px;
         text-indent: 2em;
         overflow: hidden;
         word-wrap: break-word;
