@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./style.css" rel="stylesheet" />
+    <title>33.视频滑块特效</title>
+  </head>
+  <body>
+    <section>
+      <video id="slider" autoplay muted loop>
+        <source src="https://klxxcdn.oss-cn-hangzhou.aliyuncs.com/histudy/hrm/media/video1.mp4" type="video/mp4" />
+      </video>
+      <ul class="navigation">
+        <li onclick="videoUrl('video1.mp4')"><img src="thumb1.png" alt="" /></li>
+        <li onclick="videoUrl('video2.mp4')"><img src="thumb2.png" alt="" /></li>
+        <li onclick="videoUrl('video3.mp4')"><img src="thumb3.png" alt="" /></li>
+        <li onclick="videoUrl('video4.mp4')"><img src="thumb4.png" alt="" /></li>
+      </ul>
+    </section>
+    <script>
+      function videoUrl(url) {
+        document.getElementById('slider').src = `https://klxxcdn.oss-cn-hangzhou.aliyuncs.com/histudy/hrm/media/${url}`
+      }
+    </script>
+  </body>
+</html>

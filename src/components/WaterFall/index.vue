@@ -1,17 +1,19 @@
 <template>
   <section id="gallery-wrapper">
-    <article class="white-panel" v-for="(item, index) in items" :key="index">
-      <img v-lazy="item.Img" class="thumb" />
-      <h1>
-        <a href="#">{{ item.title }}</a>
-      </h1>
-      <p>{{ item.description }}</p>
-    </article>
+    <Cards class="white-panel" v-for="(item, index) in items" :key="index">
+      <img v-lazy="item.Img" class="thumb" slot="media" />
+      <p slot="title" class="title" @click="showVideo(item)">1231dasdasdasdasdasdasdasdasdasdasdasdasdsadasdasdasdasdasdasdadas</p>
+      <p slot="content" class="content">xxx1231dasdasdasdasdasdasdasdasdasdasdasdasdsadasdasdasdasdasdasdadas</p>
+    </Cards>
   </section>
 </template>
 
 <script>
+  import Cards from '@/components/Cards'
   export default {
+    components: {
+      Cards,
+    },
     data() {
       const items = this.getItems()
       return {

@@ -6,8 +6,8 @@
     <SelectNav></SelectNav>
     <!-- 新闻卡片 -->
     <div class="news-cards">
-      <Cards class="card" v-for="item in 8" :key="item">
-        <img src="@/assets/images/V1.jpg" alt="你的图片跑丢了！！！" slot="media" class="videoItem" />
+      <Cards class="card" v-for="(item, index) in 8" :key="index">
+        <img v-lazy="`https://qucs.oss-cn-hangzhou.aliyuncs.com/images/${index}.jpg`" class="videoItem" slot="media" />
         <p slot="title" class="title" @click="showVideo(item)">1231dasdasdasdasdasdasdasdasdasdasdasdasdsadasdasdasdasdasdasdadas</p>
         <p slot="content" class="content">xxx1231dasdasdasdasdasdasdasdasdasdasdasdasdsadasdasdasdasdasdasdadas</p>
       </Cards>
@@ -45,6 +45,7 @@
     justify-content: space-between;
     flex-wrap: wrap;
     width: 100%;
+    margin-top: 6px;
     div {
       margin: 1px 0 3px 0;
       border-radius: 3px;

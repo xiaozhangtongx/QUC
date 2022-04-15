@@ -1,7 +1,20 @@
 <template>
   <div class="video">
-    <Cards class="card" v-for="item in 8" :key="item">
-      <iframe class="videoItem" :src="videoUrl" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" slot="media"> </iframe>
+    <VideoSlider class="video-slider"></VideoSlider>
+    <Cards class="card" v-for="(item, index) in 8" :key="index">
+      <video
+        muted
+        loop
+        controls
+        :src="videoUrl"
+        webkit-playsinline="true"
+        playsinline="true"
+        x5-video-player-type="h5-page"
+        :poster="`https://qucs.oss-cn-hangzhou.aliyuncs.com/images/${index}.jpg`"
+        @mouseover="isToPlay"
+        class="videoItem"
+        slot="media"
+      ></video>
       <p slot="title" class="title" @click="showVideo(item)">1231dasdasdasdasdasdasdasdasdasdasdasdasdsadasdasdasdasdasdasdadas</p>
       <p slot="content" class="content">xxx1231dasdasdasdasdasdasdasdasdasdasdasdasdsadasdasdasdasdasdasdadas</p>
     </Cards>
@@ -9,15 +22,17 @@
 </template>
 
 <script>
+  import VideoSlider from './components/VideoSlider'
   import Cards from '@/components/Cards'
   export default {
     name: '',
     components: {
       Cards,
+      VideoSlider,
     },
     data() {
       return {
-        videoUrl: 'https://player.bilibili.com/player.html?aid=682382533&bvid=BV1XU4y1R7bw&cid=556147357&page=1',
+        videoUrl: 'https://klxxcdn.oss-cn-hangzhou.aliyuncs.com/histudy/hrm/media/video3.mp4',
       }
     },
     methods: {
@@ -26,6 +41,10 @@
         console.log(1)
         // 测试
         window.open(this.videoUrl)
+      },
+      // 是否播放
+      isToPlay() {
+        console.log(2)
       },
     },
   }
@@ -49,6 +68,10 @@
       }
     }
     width: 100%;
+    .video-slider {
+      width: 100%;
+      margin-bottom: 10px;
+    }
     .card {
       width: 23%;
     }
