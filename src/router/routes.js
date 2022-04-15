@@ -5,6 +5,10 @@ const routes = [
     path: '',
     redirect: '/home',
   },
+  {
+    path: '/test',
+    component: () => import('@/views/Home/components/BookletWrapper'),
+  },
   // HomePage页面
   {
     path: '/home-page',
@@ -31,6 +35,6 @@ const routes = [
     path: '*',
     component: () => import('@/views/Error/404'),
   },
-]
+];
 
-export default routes
+export default routes;
