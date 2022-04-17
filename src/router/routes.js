@@ -7,7 +7,7 @@ const routes = [
   },
   {
     path: '/test',
-    component: () => import('@/views/Home/components/BookletWrapper'),
+    component: () => import('@/components/Loading'),
   },
   // HomePage页面
   {
@@ -29,6 +29,11 @@ const routes = [
   {
     path: '/401',
     component: () => import('@/views/Error/401'),
+  },
+  // 403
+  {
+    path: '/403',
+    component: () => import('@/views/Error/403'),
   },
   // 404
   {

@@ -1,0 +1,209 @@
+@charset "utf-8";
+/* CSS Document */
+@font-face {
+    font-family: 'SingleSleeveRegular';
+    src: url('../font/sing-webfont.eot');
+    src: 
+         url('../font/sing-webfont.woff') format('woff'),
+         url('../font/sing-webfont.ttf') format('truetype'),
+         url('../font/sing-webfont.svg#SingleSleeveRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+/* === General stuff === */
+#body {
+  height: 100vh;
+  background: #186aa9 url('../images/sky-background.png') top repeat-x;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: #3680b1;
+}
+
+img,
+a img {
+  border: 0Px none;
+  outline: none;
+}
+
+/* === Preloader === */
+
+#universal-preloader {
+  position: fixed;
+  top: 0Px;
+  left: 0Px;
+  width: 100%;
+  height: 100%;
+  opacity: 0.96;
+  background: url('../images/sky-background.png') repeat;
+  z-index: 999999999;
+}
+
+#universal-preloader > .preloader {
+  width: 24Px;
+  height: 24Px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+}
+
+.universal-preloader-preloader {
+  position: absolute;
+  top: 0Px;
+  left: 0Px;
+}
+
+/* === Main Section === */
+
+#wrapper {
+  width: 980Px;
+  margin: 0Px auto;
+  position: relative;
+  height: 100%;
+  background: url('../images/sky-shine.jpg') top left no-repeat;
+}
+
+h1.not-found-text {
+  font-size: 50Px;
+  color: #fff;
+  font-family: 'SingleSleeveRegular', cursive;
+  letter-spacing: 2Px;
+  margin-bottom: 20Px;
+}
+
+div.not-found-text {
+  position: absolute;
+  top: 35Px;
+  right: 0Px;
+  width: 430Px;
+}
+
+div.graphic {
+  position: absolute;
+  top: 80Px;
+  left: 0Px;
+  background: url('../images/404.png') top left no-repeat;
+  width: 494Px;
+  height: 331Px;
+}
+
+div.planet {
+  position: absolute;
+  bottom: -1100Px;
+  margin: 0Px auto;
+  width: 980Px;
+  background: url('../images/planet.png') center no-repeat;
+  height: 1920Px;
+  z-index: 0;
+}
+
+div.dog-wrapper {
+  position: absolute;
+  bottom: 300Px;
+  left: 440Px;
+}
+
+div.dog {
+  position: absolute;
+  bottom: 0Px;
+  left: 0Px;
+  width: 80Px;
+  height: 80Px;
+  z-index: 999;
+  background: url('../images/dog.png') 0Px 0Px no-repeat;
+}
+
+div.search {
+  position: absolute;
+  top: 145Px;
+  right: 0Px;
+  width: 340Px;
+  background: #eeeeee;
+  box-shadow: 1Px 1Px 0 #ffffff inset, 5Px 5Px 0Px #3680b1;
+  color: #555555;
+  font-size: 14Px;
+  text-shadow: 1Px 1Px 0 #ffffff;
+  border-radius: 30Px;
+  padding: 10Px;
+  z-index: 999;
+}
+
+div.search input[type='submit']:hover {
+  background: #ffffff url('../images/search.png') center center no-repeat;
+  cursor: pointer;
+}
+
+div.search input[type='submit'] {
+  box-shadow: 1Px 1Px 0 #ffffff inset, 5Px 5Px 0Px #3680b1;
+  background: #eeeeee url('../images/search.png') center center no-repeat;
+  border-radius: 50Px;
+  position: absolute;
+  top: 0Px;
+  right: 380Px;
+  width: 50Px;
+  height: 40Px;
+  border: none;
+}
+
+div.search input[type='text'] {
+  padding: 0Px 10Px;
+  border: 0Px none;
+  background: none;
+  color: #999999;
+  width: 300Px;
+  height: 20Px;
+}
+
+div.top-menu {
+  position: absolute;
+  top: 200Px;
+  right: 0Px;
+  color: #ffffff;
+  z-index: 998;
+}
+
+div.top-menu a {
+  text-decoration: none;
+  color: #eeeeee;
+  margin: 0Px 5Px;
+  font-size: 20Px;
+}
+
+div.top-menu a:hover {
+  color: #abd7fa;
+}
+
+div.dog-bubble {
+  font-size: 14Px;
+  line-height: 1.5;
+  font-style: italic;
+  height: 179Px;
+  width: 246Px;
+  background: url('../images/bubble.png') top center no-repeat;
+  padding: 20Px 0Px;
+  position: absolute;
+  bottom: 0Px;
+  left: 30Px;
+  z-index: 999;
+  opacity: 0;
+  color: #555555;
+  font-size: 14Px;
+  text-shadow: 1Px 1Px 0 #ffffff;
+}
+
+div.dog-bubble > p {
+  text-align: center;
+  padding: 0Px 35Px;
+}
+
+div.bubble-options {
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+}
