@@ -1,6 +1,6 @@
 <template>
   <div class="video">
-    <VideoSlider class="video-slider"></VideoSlider>
+    <VideoSlider class="video-slider"> </VideoSlider>
     <Cards class="card" v-for="(item, index) in 8" :key="index">
       <video
         muted
@@ -57,11 +57,13 @@
     flex-wrap: wrap;
     width: 100%;
     padding: 10px 30px;
+
     div {
       margin: 1px 0 3px 0;
       border-radius: 3px;
       cursor: pointer;
       transition: all 0.3s linear;
+      box-shadow: 2px 2px 6px #dbd9e9;
       &:hover {
         transform: translateY(-3px);
         box-shadow: rgb(212, 212, 212) 0px 0px 2px 1px;

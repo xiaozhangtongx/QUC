@@ -49,6 +49,7 @@
         display: -webkit-box;
         -webkit-line-clamp: 4; //显示的行数
         -webkit-box-orient: vertical;
+        line-clamp: 2;
       }
       .title {
         margin-bottom: 0;

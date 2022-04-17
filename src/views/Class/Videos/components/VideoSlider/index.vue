@@ -4,9 +4,10 @@
       <video id="slider" muted loop autoplay :src="videoUrl"></video>
       <ul class="navigation">
         <li v-for="item in imgData" :key="item.id">
-          <img v-lazy="item.url" alt="你的图片不小心走丢了" @click="selectUrl(item.id)" />
+          <img v-lazy="item.url" alt="你的图片不小心走丢了" @click="selectUrl(item)" />
         </li>
       </ul>
+      <h5>{{ title }}</h5>
     </section>
   </div>
 </template>
@@ -17,19 +18,21 @@
     data() {
       return {
         imgData: [
-          { id: 1, url: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/1.jpg' },
-          { id: 2, url: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/2.jpg' },
-          { id: 3, url: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/3.jpg' },
-          { id: 4, url: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/4.jpg' },
-          { id: 5, url: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/5.jpg' },
+          { id: 1, url: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/1.jpg', title: '你不知道的碳中和' },
+          { id: 2, url: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/2.jpg', title: '聊聊碳中和那些事' },
+          { id: 3, url: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/3.jpg', title: '聊聊碳中和那些事2' },
+          { id: 4, url: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/4.jpg', title: '聊聊碳中和那些事3' },
+          { id: 5, url: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/5.jpg', title: '聊聊碳中和那些事4' },
         ],
-        videoUrl: 'https://klxxcdn.oss-cn-hangzhou.aliyuncs.com/histudy/hrm/media/video3.mp4',
+        videoUrl: 'https://klxxcdn.oss-cn-hangzhou.aliyuncs.com/histudy/hrm/media/video1.mp4',
+        title: '你不知道的碳中和',
       }
     },
     methods: {
       // 切换视频
-      selectUrl(id) {
-        console.log(id)
+      selectUrl(item) {
+        let id = item.id
+        this.title = item.title
         this.videoUrl = `https://klxxcdn.oss-cn-hangzhou.aliyuncs.com/histudy/hrm/media/video${id}.mp4`
         console.log(this.videoUrl)
       },
@@ -42,6 +45,16 @@
     position: relative;
     width: 100%;
     height: 120px;
+    h5 {
+      position: absolute;
+      left: 50%;
+      top: 40%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      font-size: 14px;
+      color: white;
+      z-index: 1200;
+    }
     video {
       position: absolute;
       top: 0;
