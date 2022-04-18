@@ -3,11 +3,11 @@
     <!-- Universal preloader -->
     <div id="universal-preloader">
       <div class="preloader">
-        <img
+        <!-- <img
           src="images/universal-preloader.gif"
           alt="universal-preloader"
           class="universal-preloader-preloader"
-        />
+        /> -->
       </div>
     </div>
     <!-- Universal preloader -->
@@ -72,7 +72,7 @@
           </p>
           <p class="dog-bubble">
             I wish I had a cookie<br /><img
-              style="margin-top: 8Px"
+              style="margin-top: 8px"
               src="images/cookie.png"
               alt="cookie"
             />
@@ -92,7 +92,7 @@
           </p>
           <p class="dog-bubble">
             I think I saw a <br /><img
-              style="margin-top: 8Px"
+              style="margin-top: 8px"
               src="images/cat.png"
               alt="cat"
             />
@@ -538,71 +538,71 @@ export default {
 @import 'css/main.css';
 @import 'css/tipsy.css';
 .tipsy {
-  padding: 5Px;
-  font-size: 10Px;
+  padding: 5px;
+  font-size: 10px;
   position: absolute;
   z-index: 9999999999;
 }
 .tipsy-inner {
-  padding: 5Px 8Px 4Px 8Px;
+  padding: 5px 8px 4px 8px;
   background-color: black;
   color: white;
-  max-width: 200Px;
+  max-width: 200px;
   text-align: center;
 }
 .tipsy-inner {
-  border-radius: 3Px;
-  -moz-border-radius: 3Px;
-  -webkit-border-radius: 3Px;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
 }
 .tipsy-arrow {
   position: absolute;
   background: url('./images/tipsy.gif') no-repeat top left;
-  width: 9Px;
-  height: 5Px;
+  width: 9px;
+  height: 5px;
 }
 .tipsy-n .tipsy-arrow {
   top: 0;
   left: 50%;
-  margin-left: -4Px;
+  margin-left: -4px;
 }
 .tipsy-nw .tipsy-arrow {
   top: 0;
-  left: 10Px;
+  left: 10px;
 }
 .tipsy-ne .tipsy-arrow {
   top: 0;
-  right: 10Px;
+  right: 10px;
 }
 .tipsy-s .tipsy-arrow {
   bottom: 0;
   left: 50%;
-  margin-left: -4Px;
+  margin-left: -4px;
   background-position: bottom left;
 }
 .tipsy-sw .tipsy-arrow {
   bottom: 0;
-  left: 10Px;
+  left: 10px;
   background-position: bottom left;
 }
 .tipsy-se .tipsy-arrow {
   bottom: 0;
-  right: 10Px;
+  right: 10px;
   background-position: bottom left;
 }
 .tipsy-e .tipsy-arrow {
   top: 50%;
-  margin-top: -4Px;
+  margin-top: -4px;
   right: 0;
-  width: 5Px;
-  height: 9Px;
+  width: 5px;
+  height: 9px;
   background-position: top right;
 }
 .tipsy-w .tipsy-arrow {
   top: 50%;
-  margin-top: -4Px;
+  margin-top: -4px;
   left: 0;
-  width: 5Px;
-  height: 9Px;
+  width: 5px;
+  height: 9px;
 }
 </style>
