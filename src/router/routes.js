@@ -7,7 +7,7 @@ const routes = [
   },
   {
     path: '/test',
-    component: () => import('@/components/Loading'),
+    component: () => import('@/views/User'),
   },
   // HomePage页面
   {
@@ -26,6 +26,22 @@ const routes = [
     path: '/detail',
     component: () => import('@/views/DetailPage'),
   },
+  {
+    path: '/user',
+    redirect: '/login',
+    name: 'User',
+    component: () => import('@/views/User'),
+    children: [
+      {
+        path: '/login',
+        component: () => import('@/views/User/components/Login'),
+      },
+      {
+        path: '/register',
+        component: () => import('@/views/User/components/Register'),
+      },
+    ],
+  },
   // 403
   {
     path: '/403',
@@ -36,6 +52,6 @@ const routes = [
     path: '*',
     component: () => import('@/views/Error/404'),
   },
-]
+];
 
-export default routes
+export default routes;
