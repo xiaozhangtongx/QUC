@@ -53,6 +53,7 @@
         width: 80px;
         img {
           height: 100%;
+          padding-left: 50px;
         }
       }
       .search {

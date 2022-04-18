@@ -6,7 +6,7 @@
           <h5 slot="title">{{ item.title }}</h5>
           <h5 slot="info-title">{{ item.title }}</h5>
           <article slot="info-content">{{ item.content }}</article>
-          <ClickButton slot="btn">探索更多</ClickButton>
+          <ClickButton slot="btn" @click="goDetail()">探索更多</ClickButton>
         </HoverCard>
       </el-carousel-item>
     </el-carousel>
@@ -53,7 +53,13 @@ item
         ],
       }
     },
-    methods: {},
+    methods: {
+      // 跳转到详情节面
+      goDetail() {
+        console.log(1)
+        this.$router.push('/detail')
+      },
+    },
   }
 </script>
 

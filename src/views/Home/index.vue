@@ -8,9 +8,9 @@
         <div class="box-global knowledge">
           <h2 class="label">QU碳小知识</h2>
           <div class="knowledge-card">
-            <Cards class="card" v-for="(item, index) in 6" :key="index">
+            <Cards class="card" v-for="(item, index) in 6" :key="index" @click="goDetail">
               <img v-lazy="`https://qucs.oss-cn-hangzhou.aliyuncs.com/images/${index}.jpg`" slot="media" />
-              <p slot="content" class="content">xxx1231dasdasdasdfdgfdgdfafsdfsdfsdfsdfsdfdsfsdfsdfsdsdasdasdasdasdasdasdasdasdsadasdasdasdasdasdasdadas</p>
+              <p slot="content" class="content" @click="goDetail">xxx1231dasdasdasdfdgfdgdfafsdfsdfsdfsdfsdfdsfsdfsdfsdsdasdasdasdasdasdasdasdasdsadasdasdasdasdasdasdadas</p>
             </Cards>
           </div>
         </div>
@@ -81,7 +81,12 @@
         },
       }
     },
-    methods: {},
+    methods: {
+      // 跳转到详细页面
+      goDetail() {
+        this.$router.push('/detail')
+      },
+    },
   }
 </script>
 
@@ -102,6 +107,7 @@
             .card {
               overflow: hidden;
               width: 32%;
+              height: 76px;
               margin-bottom: 4.42px;
               img {
                 width: 100%;

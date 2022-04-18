@@ -33,7 +33,15 @@
     border-radius: 3.1px;
     box-shadow: 1px 1px 7px #dbd9e9;
     transition: all 0.3s linear;
+    .media {
+      flex: 2;
+      > * {
+        height: 100%;
+        width: 100%;
+      }
+    }
     article {
+      flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;

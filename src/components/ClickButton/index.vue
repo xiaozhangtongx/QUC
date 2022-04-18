@@ -15,7 +15,7 @@
       }
     },
     methods: {
-      reppleClick(e) {
+      reppleClick(e, data) {
         this.repple_button.animate = true
         let button = e.target
         let ripple = button.querySelector('.__cov-ripple')
@@ -30,6 +30,7 @@
             this.repple_button.animate = false
           }, 660)
         })
+        this.$router.push('/detail')
       },
     },
   }
