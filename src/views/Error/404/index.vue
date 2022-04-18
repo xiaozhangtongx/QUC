@@ -1,15 +1,15 @@
 <template>
   <div id="body">
     <!-- Universal preloader -->
-    <div id="universal-preloader">
+    <!-- <div id="universal-preloader">
       <div class="preloader">
-        <!-- <img
+        <img
           src="images/universal-preloader.gif"
           alt="universal-preloader"
           class="universal-preloader-preloader"
-        /> -->
+        />
       </div>
-    </div>
+    </div> -->
     <!-- Universal preloader -->
 
     <div id="wrapper">
@@ -513,7 +513,7 @@ export default {
       };
     })(jQuery);
 
-    $(document).on('ready', function () {
+    $(document).ready( function () {
       universalPreloader();
     });
 
