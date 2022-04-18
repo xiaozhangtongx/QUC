@@ -2,17 +2,16 @@
   <div class="carousels">
     <el-carousel :interval="4000">
       <el-carousel-item v-for="item in homeData" :key="item.id">
-        <HoverCard class="medium" :style="{ backgroundImage: 'url(' + item.img + ')' }">
+        <HoverCard class="medium" :style="{ backgroundImage: 'url(' + item.img + ')' }" @click="goDetail()">
           <h5 slot="title">{{ item.title }}</h5>
           <h5 slot="info-title">{{ item.title }}</h5>
           <article slot="info-content">{{ item.content }}</article>
-          <ClickButton slot="btn" @click="goDetail()">探索更多</ClickButton>
+          <ClickButton slot="btn" @click.native="goDetail(item)">探索更多</ClickButton>
         </HoverCard>
       </el-carousel-item>
     </el-carousel>
   </div>
 </template>
-item
 <script>
   import HoverCard from '@/components/HoverCard'
   import ClickButton from '@/components/ClickButton'
@@ -55,9 +54,8 @@ item
     },
     methods: {
       // 跳转到详情节面
-      goDetail() {
-        console.log(1)
-        this.$router.push('/detail')
+      goDetail(item) {
+        this.$router.push({ path: '/detail', query: { data: item } })
       },
     },
   }

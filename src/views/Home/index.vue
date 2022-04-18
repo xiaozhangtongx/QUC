@@ -8,9 +8,9 @@
         <div class="box-global knowledge">
           <h2 class="label">QU碳小知识</h2>
           <div class="knowledge-card">
-            <Cards class="card" v-for="(item, index) in 6" :key="index" @click="goDetail">
-              <img v-lazy="`https://qucs.oss-cn-hangzhou.aliyuncs.com/images/${index}.jpg`" slot="media" />
-              <p slot="content" class="content" @click="goDetail">xxx1231dasdasdasdfdgfdgdfafsdfsdfsdfsdfsdfdsfsdfsdfsdsdasdasdasdasdasdasdasdasdsadasdasdasdasdasdasdadas</p>
+            <Cards class="card" v-for="item in knowData" :key="item.id" @click.native="goDetail(item)">
+              <img v-lazy="item.img" slot="media" />
+              <p slot="content" class="content">{{ item.content }}</p>
             </Cards>
           </div>
         </div>
@@ -47,10 +47,27 @@
         </div>
       </section>
     </div>
+    <!-- 视频模块 -->
     <div class="box-global video-card">
       <h2 class="label">QU碳小视频</h2>
       <div class="video">
-        <video controls="controls" muted="muted" autoplay="autoplay" src="" v-for="(item, index) in 6" :key="index"></video>
+        <HoverCard class="medium" v-for="(item, index) in 6" :key="index">
+          <video
+            muted
+            loop
+            controls
+            webkit-playsinline="true"
+            playsinline="true"
+            x5-video-player-type="h5-page"
+            :poster="`https://qucs.oss-cn-hangzhou.aliyuncs.com/images/${index}.jpg`"
+            class="videoItem"
+            slot="media"
+          ></video>
+          <h5 slot="title">{{ item.title }}</h5>
+          <h5 slot="info-title">{{ item.title }}</h5>
+          <article slot="info-content">{{ item.content }}</article>
+          <ClickButton slot="btn" @click.native="goDetail(item)">探索更多</ClickButton>
+        </HoverCard>
       </div>
     </div>
   </div>
@@ -61,6 +78,7 @@
   import ClickButton from '@/components/ClickButton'
   import Cards from '@/components/Cards'
   import RankList from '@/components/RankList'
+  import HoverCard from '@/components/HoverCard'
   export default {
     name: '',
     components: {
@@ -68,6 +86,7 @@
       ClickButton,
       Cards,
       RankList,
+      HoverCard,
     },
     data() {
       return {
@@ -79,12 +98,52 @@
           rank: 1950,
           total: 1236,
         },
+        // 去碳小课堂知识
+        knowData: [
+          {
+            id: 0,
+            img: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/1.jpg',
+            title: '人难免天生有自怜情绪，唯有时刻保持清醒，才能看清真正的价值在哪里。',
+            content:
+              '汉江湾生态修复项目是针对该区域化工企业关停搬迁后，实施的土壤修复项目。项目位于武汉市硚口区古田老工业区内，为原武汉无机盐厂及武汉环宇化工有限公司搬迁遗留场地，污染区域面积约8.46万平方米。由于历史原因，该项目污染成因复杂，污染修复体量大，治理难度系数高，被列入生态环境部技术应用试点项目、武汉市硚口区区域生态环境治理重点项目。',
+          },
+          {
+            id: 1,
+            img: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/2.jpg',
+            title: '人难免天生有自怜情绪，唯有时刻保持清醒，才能看清真正的价值在哪里2。',
+            content: '人难免天生有自怜情绪，唯有时刻保持清醒，才能看清真正的价值在哪里。',
+          },
+          {
+            id: 2,
+            img: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/3.jpg',
+            title: '人难免天生有自怜情绪，唯有时刻保持清醒，才能看清真正的价值在哪里3。',
+            content: '人难免天生有自怜情绪，唯有时刻保持清醒，才能看清真正的价值在哪里。',
+          },
+          {
+            id: 3,
+            img: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/4.jpg',
+            title: '人难免天生有自怜情绪，唯有时刻保持清醒，才能看清真正的价值在哪里4。',
+            content: '人难免天生有自怜情绪，唯有时刻保持清醒，才能看清真正的价值在哪里。',
+          },
+          {
+            id: 4,
+            img: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/5.jpg',
+            title: '人难免天生有自怜情绪，唯有时刻保持清醒，才能看清真正的价值在哪里4。',
+            content: '人难免天生有自怜情绪，唯有时刻保持清醒，才能看清真正的价值在哪里。',
+          },
+          {
+            id: 5,
+            img: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/6.jpg',
+            title: '人难免天生有自怜情绪，唯有时刻保持清醒，才能看清真正的价值在哪里4。',
+            content: '人难免天生有自怜情绪，唯有时刻保持清醒，才能看清真正的价值在哪里。',
+          },
+        ],
       }
     },
     methods: {
       // 跳转到详细页面
-      goDetail() {
-        this.$router.push('/detail')
+      goDetail(item) {
+        this.$router.push({ path: '/detail', query: { data: item } })
       },
     },
   }
@@ -110,6 +169,7 @@
               height: 76px;
               margin-bottom: 4.42px;
               img {
+                height: 50px;
                 width: 100%;
                 transition: all 0.5s linear;
               }
@@ -181,7 +241,8 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
-        video {
+        .medium {
+          height: 47px;
           width: 32%;
           margin-bottom: 6px;
         }

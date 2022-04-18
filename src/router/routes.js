@@ -26,11 +26,6 @@ const routes = [
     path: '/detail',
     component: () => import('@/views/DetailPage'),
   },
-  // 401
-  {
-    path: '/401',
-    component: () => import('@/views/Error/401'),
-  },
   // 403
   {
     path: '/403',

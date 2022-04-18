@@ -1,5 +1,5 @@
 <template>
-  <button @click="reppleClick" class="__cov-button-ripple" :class="{ active: repple_button.toggle }">
+  <button class="__cov-button-ripple" :class="{ active: repple_button.toggle }">
     <slot></slot>
     <span class="__cov-ripple" :class="{ animate: repple_button.animate }"></span>
   </button>
@@ -14,25 +14,7 @@
         },
       }
     },
-    methods: {
-      reppleClick(e, data) {
-        this.repple_button.animate = true
-        let button = e.target
-        let ripple = button.querySelector('.__cov-ripple')
-        if (ripple) {
-          let d = Math.max(button.offsetHeight, button.offsetWidth)
-          let x = e.layerX - ripple.offsetWidth / 2
-          let y = e.layerY - ripple.offsetHeight / 2
-          ripple.setAttribute('style', 'height: ' + d + 'px; width: ' + d + 'px; top: ' + y + 'px; left: ' + x + 'px;')
-        }
-        this.$nextTick(() => {
-          setTimeout(() => {
-            this.repple_button.animate = false
-          }, 660)
-        })
-        this.$router.push('/detail')
-      },
-    },
+    methods: {},
   }
 </script>
 

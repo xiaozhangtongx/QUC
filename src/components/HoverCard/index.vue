@@ -1,6 +1,9 @@
 <template>
   <div class="item">
     <div class="team-img">
+      <div class="media">
+        <slot name="media"> </slot>
+      </div>
       <div class="title">
         <slot name="title"> </slot>
       </div>
@@ -46,6 +49,15 @@
       width: 100%;
       overflow: hidden;
       position: relative;
+      .media {
+        height: 100%;
+        width: 100%;
+        > * {
+          // height: 90%;
+          width: 100%;
+          object-fit: fill;
+        }
+      }
       .title {
         display: flex;
         justify-content: flex-start;
@@ -77,7 +89,6 @@
     }
     .info {
       position: absolute;
-
       bottom: -500px;
       left: 0;
       padding: 0 15px;
