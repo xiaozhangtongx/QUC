@@ -1,6 +1,6 @@
 <template>
-  <div class="echarts">
-    <div style="width: 100; height: 100%" ref="allMap"></div>
+  <div class="echarts" style="width: 100vw; height: 100vh">
+    <div style="width: 100%; height: 100%" ref="allMap"></div>
     <div class="mapChoose">
       <span v-for="(item, index) in parentInfo" :key="item.code">
         <span class="title" @click="chooseArea(item, index)">{{
@@ -13,6 +13,7 @@
 </template>
 
 <script>
+// TODO 一定时间会卡顿
 // import resize from './mixins/resize';
 export default {
   name: 'Map',
@@ -460,22 +461,22 @@ export default {
   position: relative;
   // background: url('@/assets/mapbg.jpg') no-repeat;
   background-size: 100% 100%;
-}
-.mapChoose {
-  position: absolute;
-  left: 5px;
-  top: 10px;
-  color: rgb(0, 0, 0);
-  .title {
-    padding: 5px;
-    border-top: 1px solid rgba(147, 235, 248, 0.8);
-    border-bottom: 1px solid rgba(147, 235, 248, 0.8);
-    cursor: pointer;
-  }
-  .icon {
-    font-family: 'simsun';
-    font-size: 10px;
-    margin: 0 11px;
+  .mapChoose {
+    position: absolute;
+    left: 5px;
+    top: 10px;
+    color: rgb(0, 0, 0);
+    .title {
+      padding: 5px;
+      border-top: 1px solid rgba(147, 235, 248, 0.8);
+      border-bottom: 1px solid rgba(147, 235, 248, 0.8);
+      cursor: pointer;
+    }
+    .icon {
+      font-family: 'simsun';
+      font-size: 10px;
+      margin: 0 11px;
+    }
   }
 }
 </style>
