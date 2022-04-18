@@ -12,7 +12,7 @@
           没有HR面，24号收到HR的oc，但是30号之前就要确定接不接（虽然本菜鸡暂时也没有其他offer，肯定会接）Offer上面没写部门，申请页面也找不到。二面反问面试官的时候，他和我提了一下是到家下面的外卖，具体也没有说的很清楚。
           虽然肯定会先接Offer，但是还是好奇具体是哪个部门，有没有兄弟知道美团怎么知道自己是哪个部门吗？
         </li>
-        <li class="imgs"><img v-for="item in 6" :key="item" src="http://img1.mydrivers.com/img/20190129/9d0fca44865b4925be0c668994def6dd.jpg" alt="你的图片跑了！" /></li>
+        <li class="imgs"><img v-for="item in 3" :key="item" src="http://img1.mydrivers.com/img/20190129/9d0fca44865b4925be0c668994def6dd.jpg" alt="你的图片跑了！" /></li>
       </ul>
     </div>
     <div class="feed">
@@ -37,7 +37,7 @@
 
 <style scoped lang="less">
   #blog-card {
-    margin-top: 3px;
+    margin-bottom: 3px;
     padding: 3px;
     background-color: #fff;
     border-radius: 3px;
@@ -56,7 +56,7 @@
         margin-left: 2px;
         > li {
           width: 100%;
-          font-size: 3.7px;
+          font-size: 4.2px;
           margin-bottom: 3px;
           &hover {
             color: #0dbc79;
@@ -66,7 +66,7 @@
           display: flex;
           justify-content: space-between;
           .name {
-            font-size: 3.7px;
+            font-size: 4.2px;
             color: #fc7123;
           }
         }
@@ -100,7 +100,7 @@
       height: 11px;
     }
     .icon {
-      font-size: 3.7px;
+      font-size: 4.2px;
       cursor: pointer;
       &:hover {
         color: #0dbc79;

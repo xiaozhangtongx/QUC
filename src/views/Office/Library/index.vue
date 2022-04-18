@@ -1,13 +1,10 @@
 <template>
-  <div>
-    <router-view></router-view>
-  </div>
+  <div>文库</div>
 </template>
 
 <script>
   export default {
     name: '',
-    components: {},
     data() {
       return {}
     },

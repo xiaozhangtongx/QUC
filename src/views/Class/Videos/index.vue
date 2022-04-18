@@ -1,88 +1,115 @@
 <template>
-  <div class="video">
+  <div id="video">
     <VideoSlider class="video-slider"> </VideoSlider>
-    <Cards class="card" v-for="(item, index) in 8" :key="index">
-      <video
-        muted
-        loop
-        controls
-        :src="videoUrl"
-        webkit-playsinline="true"
-        playsinline="true"
-        x5-video-player-type="h5-page"
-        :poster="`https://qucs.oss-cn-hangzhou.aliyuncs.com/images/${index}.jpg`"
-        @mouseover="isToPlay"
-        class="videoItem"
-        slot="media"
-      ></video>
-      <p slot="title" class="title" @click="showVideo(item)">1231dasdasdasdasdasdasdasdasdasdasdasdasdsadasdasdasdasdasdasdadas</p>
-      <p slot="content" class="content">xxx1231dasdasdasdasdasdasdasdasdasdasdasdasdsadasdasdasdasdasdasdadas</p>
-    </Cards>
+    <div class="video">
+      <HoverCard class="medium" v-for="item in videoData" :key="item.id">
+        <video muted loop controls webkit-playsinline="true" playsinline="true" x5-video-player-type="h5-page" :poster="item.img" class="videoItem" slot="media"></video>
+        <h5 slot="title">{{ item.title }}</h5>
+        <h5 slot="info-title">{{ item.title }}</h5>
+        <ClickButton slot="btn" @click.native="goDetail(item)">探索更多</ClickButton>
+      </HoverCard>
+    </div>
+    <LoadMore @click.native="loadMore"></LoadMore>
   </div>
 </template>
 
 <script>
   import VideoSlider from './components/VideoSlider'
-  import Cards from '@/components/Cards'
+  import HoverCard from '@/components/HoverCard'
+  import LoadMore from '@/components/LoadMore'
+  import ClickButton from '@/components/ClickButton'
+  import { Message } from 'element-ui'
   export default {
     name: '',
     components: {
-      Cards,
+      HoverCard,
       VideoSlider,
+      LoadMore,
+      ClickButton,
     },
     data() {
       return {
         videoUrl: 'https://klxxcdn.oss-cn-hangzhou.aliyuncs.com/histudy/hrm/media/video3.mp4',
+        // 去碳小视频数据
+        videoData: [
+          {
+            id: 0,
+            img: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/1.jpg',
+            title: '人难免天生有自怜情绪，唯有时刻保持清醒，才能看清真正的价值在哪里1。',
+            video: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/videos/v1.mp4',
+          },
+          {
+            id: 1,
+            img: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/2.jpg',
+            title: '人难免天生有自怜情绪，唯有时刻保持清醒，才能看清真正的价值在哪里2。',
+            video: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/videos/v2.mp4',
+          },
+          {
+            id: 2,
+            img: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/3.jpg',
+            title: '人难免天生有自怜情绪，唯有时刻保持清醒，才能看清真正的价值在哪里3。',
+            video: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/videos/v3.mp4',
+          },
+          {
+            id: 3,
+            img: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/4.jpg',
+            title: '人难免天生有自怜情绪，唯有时刻保持清醒，才能看清真正的价值在哪里4。',
+            video: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/videos/v4.mp4',
+          },
+          {
+            id: 4,
+            img: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/5.jpg',
+            title: '人难免天生有自怜情绪，唯有时刻保持清醒，才能看清真正的价值在哪里5。',
+            video: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/videos/v5.mp4',
+          },
+          {
+            id: 5,
+            img: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/6.jpg',
+            title: '人难免天生有自怜情绪，唯有时刻保持清醒，才能看清真正的价值在哪里6。',
+            video: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/videos/v6.mp4',
+          },
+        ],
       }
     },
     methods: {
-      // 跳转到视频页面
-      showVideo(item) {
-        console.log(1)
-        // 测试
-        window.open(this.videoUrl)
+      // 跳转到详细页面
+      goDetail(item) {
+        this.$router.push({ path: '/detail', query: { data: item } })
       },
-      // 是否播放
-      isToPlay() {
-        console.log(2)
+      // 换一换
+      loadMore() {
+        Message.success('切换成功')
       },
     },
   }
 </script>
 
 <style scoped lang="less">
-  .video {
+  #video {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    flex-direction: column;
     width: 100%;
     padding: 10px 30px;
-
-    div {
-      margin: 1px 0 3px 0;
-      border-radius: 3px;
-      cursor: pointer;
-      transition: all 0.3s linear;
-      box-shadow: 2px 2px 6px #dbd9e9;
-      &:hover {
-        transform: translateY(-3px);
-        box-shadow: rgb(212, 212, 212) 0px 0px 2px 1px;
-      }
-    }
-    width: 100%;
     .video-slider {
       width: 100%;
       margin-bottom: 10px;
     }
-    .card {
-      width: 23%;
+    // 视频卡片
+    .video {
+      display: flex;
+      height: 100%;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      .medium {
+        height: 52px;
+        width: 31%;
+        margin-bottom: 6px;
+      }
     }
-    .videoItem {
-      width: 100%;
-      height: 45px;
-      border-top-left-radius: 3px;
-      border-top-right-radius: 3px;
-      overflow: hidden;
-    }
+  }
+  /deep/.el-message {
+    width: 10px !important;
+    height: 10px !important;
+    min-width: 10px !important;
   }
 </style>

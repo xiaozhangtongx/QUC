@@ -51,21 +51,10 @@
     <div class="box-global video-card">
       <h2 class="label">QU碳小视频</h2>
       <div class="video">
-        <HoverCard class="medium" v-for="(item, index) in 6" :key="index">
-          <video
-            muted
-            loop
-            controls
-            webkit-playsinline="true"
-            playsinline="true"
-            x5-video-player-type="h5-page"
-            :poster="`https://qucs.oss-cn-hangzhou.aliyuncs.com/images/${index}.jpg`"
-            class="videoItem"
-            slot="media"
-          ></video>
+        <HoverCard class="medium" v-for="item in videoData" :key="item.id">
+          <video muted loop controls webkit-playsinline="true" playsinline="true" x5-video-player-type="h5-page" :poster="item.img" class="videoItem" slot="media"></video>
           <h5 slot="title">{{ item.title }}</h5>
           <h5 slot="info-title">{{ item.title }}</h5>
-          <article slot="info-content">{{ item.content }}</article>
           <ClickButton slot="btn" @click.native="goDetail(item)">探索更多</ClickButton>
         </HoverCard>
       </div>
@@ -136,6 +125,45 @@
             img: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/6.jpg',
             title: '人难免天生有自怜情绪，唯有时刻保持清醒，才能看清真正的价值在哪里4。',
             content: '人难免天生有自怜情绪，唯有时刻保持清醒，才能看清真正的价值在哪里。',
+          },
+        ],
+        // 去碳小视频数据
+        videoData: [
+          {
+            id: 0,
+            img: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/1.jpg',
+            title: '人难免天生有自怜情绪，唯有时刻保持清醒，才能看清真正的价值在哪里1。',
+            video: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/videos/v1.mp4',
+          },
+          {
+            id: 1,
+            img: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/2.jpg',
+            title: '人难免天生有自怜情绪，唯有时刻保持清醒，才能看清真正的价值在哪里2。',
+            video: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/videos/v2.mp4',
+          },
+          {
+            id: 2,
+            img: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/3.jpg',
+            title: '人难免天生有自怜情绪，唯有时刻保持清醒，才能看清真正的价值在哪里3。',
+            video: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/videos/v3.mp4',
+          },
+          {
+            id: 3,
+            img: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/4.jpg',
+            title: '人难免天生有自怜情绪，唯有时刻保持清醒，才能看清真正的价值在哪里4。',
+            video: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/videos/v4.mp4',
+          },
+          {
+            id: 4,
+            img: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/5.jpg',
+            title: '人难免天生有自怜情绪，唯有时刻保持清醒，才能看清真正的价值在哪里5。',
+            video: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/videos/v5.mp4',
+          },
+          {
+            id: 5,
+            img: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/6.jpg',
+            title: '人难免天生有自怜情绪，唯有时刻保持清醒，才能看清真正的价值在哪里6。',
+            video: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/videos/v6.mp4',
           },
         ],
       }

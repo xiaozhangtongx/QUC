@@ -91,7 +91,7 @@
       position: absolute;
       bottom: -500px;
       left: 0;
-      padding: 0 15px;
+      padding: 0 1px;
       width: 100%;
       z-index: 4;
       transition: all 0.4s;
@@ -100,7 +100,15 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-bottom: 6px;
+        margin-bottom: 3%;
+      }
+      h5 {
+        overflow: hidden;
+        word-wrap: break-word;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2; //显示的行数
+        -webkit-box-orient: vertical;
       }
     }
   }
@@ -110,7 +118,12 @@
     font-size: 4.7px;
     color: #fff;
     letter-spacing: 1px;
+    overflow: hidden;
+    word-wrap: break-word;
     text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1; //显示的行数
+    -webkit-box-orient: vertical;
   }
   article {
     width: 80%;

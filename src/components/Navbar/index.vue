@@ -27,7 +27,7 @@
     name: '',
     data() {
       let menuData = this.getMenuData(routes_main[0].children)
-      console.log(routes_main[0].children)
+      // console.log(routes_main[0].children)
       return {
         // 导航栏数据
         navItem: menuData,

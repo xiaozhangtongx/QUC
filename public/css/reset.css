@@ -68,7 +68,7 @@ li {
 /* 重置文本格式元素 */
 a {
   text-decoration: none;
-  /* color: #666; */
+  color: rgb(0, 0, 0);
 }
 
 /* 重置表单元素 */

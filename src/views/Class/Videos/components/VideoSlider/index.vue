@@ -34,7 +34,6 @@
         let id = item.id
         this.title = item.title
         this.videoUrl = `https://klxxcdn.oss-cn-hangzhou.aliyuncs.com/histudy/hrm/media/video${id}.mp4`
-        console.log(this.videoUrl)
       },
     },
   }
@@ -75,12 +74,13 @@
         list-style: none;
         cursor: pointer;
         margin: 0 10px;
-        background: #fff;
-        // padding: 1px 1px 0;
         opacity: 0.7;
         transition: 0.5s;
+        padding: 0;
         img {
           width: 27px;
+          height: 17px;
+          object-fit: cover;
           transition: 0.5s;
           &:hover {
             width: 32px;

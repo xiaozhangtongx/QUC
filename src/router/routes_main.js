@@ -8,12 +8,7 @@ const routes_main = [
     component: () => import('@/layout'),
     children: [
       // 系统首页路由
-      {
-        path: '/home',
-        name: 'Home',
-        meta: { icon: 'el-icon-s-home', title: '首页' },
-        component: () => import('@/views/Home'),
-      },
+      { path: '/home', name: 'Home', meta: { icon: 'el-icon-s-home', title: '首页' }, component: () => import('@/views/Home') },
       // QU碳小课堂模块
       {
         path: '/class',
@@ -66,9 +61,14 @@ const routes_main = [
       {
         path: '/office',
         name: 'Office',
-        meta: { icon: 'el-icon-s-management', title: '低碳办公室' },
+        redirect: '/library',
+        meta: { icon: 'el-icon-s-management', title: 'QU碳办公室' },
         component: () => import('@/views/Office'),
-        children: [],
+        children: [
+          { path: '/library', name: 'library', meta: { title: 'QU碳文库' }, component: () => import('@/views/Office/Library') },
+          { path: '/organization', name: 'organization', meta: { title: 'QU碳组织' }, component: () => import('@/views/Office/Organization') },
+          { path: '/feedback', name: 'feedback', meta: { title: '联系我们' }, component: () => import('@/views/Office/FeedBack') },
+        ],
       },
       // QU碳在行动
       {

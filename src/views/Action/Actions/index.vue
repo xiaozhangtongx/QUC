@@ -9,7 +9,14 @@
       <!-- 每日任务 -->
       <div class="box-global">
         <h2 class="label">今日任务</h2>
-        <AnswerCard></AnswerCard>
+        <li><label>每日答题</label> <el-progress :percentage="100" :format="format"></el-progress></li>
+        <li><label>每日签到</label> <el-progress :percentage="30" :format="format"></el-progress></li>
+        <li><label>每日阅读</label> <el-progress :percentage="20" :format="format"></el-progress></li>
+        <li><label>视频学习</label> <el-progress :percentage="0" :format="format"></el-progress></li>
+      </div>
+      <!-- 相关链接 -->
+      <div class="box-global friend-link">
+        <h2 class="label">相关链接</h2>
       </div>
     </section>
 
@@ -160,6 +167,14 @@
     cursor: pointer;
     &:hover {
       color: #0dbc79;
+    }
+  }
+  li {
+    padding: 3px;
+    label {
+      display: inline-block;
+      font-size: 4.2px;
+      padding-bottom: 3px;
     }
   }
 </style>
