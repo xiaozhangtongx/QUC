@@ -1,25 +1,28 @@
 <template>
   <div id="action">
     <section class="left">
+      <!-- 每日任务 -->
+      <div class="box-global">
+        <h2 class="label">今日任务</h2>
+        <li><label>每日答题</label> <el-progress :percentage="100"></el-progress></li>
+        <li><label>每日签到</label> <el-progress :percentage="30"></el-progress></li>
+        <li><label>每日阅读</label> <el-progress :percentage="20"></el-progress></li>
+        <li><label>视频学习</label> <el-progress :percentage="0"></el-progress></li>
+      </div>
       <!-- 每日一题 -->
       <div class="box-global">
         <h2 class="label">每日一题</h2>
         <AnswerCard></AnswerCard>
       </div>
-      <!-- 每日任务 -->
+      <!-- 每日冷笑话 -->
       <div class="box-global">
-        <h2 class="label">今日任务</h2>
-        <li><label>每日答题</label> <el-progress :percentage="100" :format="format"></el-progress></li>
-        <li><label>每日签到</label> <el-progress :percentage="30" :format="format"></el-progress></li>
-        <li><label>每日阅读</label> <el-progress :percentage="20" :format="format"></el-progress></li>
-        <li><label>视频学习</label> <el-progress :percentage="0" :format="format"></el-progress></li>
-      </div>
-      <!-- 相关链接 -->
-      <div class="box-global friend-link">
-        <h2 class="label">相关链接</h2>
+        <h2 class="label">开心一刻--给地球降降温</h2>
+        <article class="joke">
+          <li>{{ jokeData }}</li>
+        </article>
+        <ClickButton>换一换</ClickButton>
       </div>
     </section>
-
     <section class="right">
       <!-- 今日打卡 -->
       <div class="punch-card box-global">
@@ -33,7 +36,7 @@
         </li>
         <li>
           <!-- 打卡盒子 -->
-          <ClickButton>打卡</ClickButton>
+          <ClickButton @click.native="goMark">打卡</ClickButton>
         </li>
       </div>
       <!-- 用户信息 -->
@@ -70,6 +73,7 @@
 </template>
 
 <script>
+  import { getJoke } from '@/api/user.js'
   import ClickButton from '@/components/ClickButton'
   import AnswerCard from '@/components/AnswerCard'
   import RankList from '@/components/RankList'
@@ -82,7 +86,7 @@
     },
     data() {
       return {
-        rank: 0,
+        rank: '999+',
         count: 0,
         info: {
           like: 45,
@@ -90,9 +94,34 @@
           rank: 1950,
           total: 1236,
         },
+        jokeData: `"课上，小雯觉得时间很难熬。就开始敲桌子打板凳，还念念有词道，“真是渡分如年啊！”然后，就问坐在旁边的小佩：“还有几分钟下课？”小佩看了看表，淡淡地说：“还有一年。”"`,
       }
     },
-    methods: {},
+    methods: {
+      // 跳转到打卡界面
+      goMark() {
+        this.$router.push('/post_blog')
+      },
+      // 获取冷笑话
+      // async getJoke() {
+      //   let url = 'outer/api/jokes/list'
+      //   let params = {
+      //     page: 1,
+      //     app_id: 'pg7rlnkhtmoyjmrr',
+      //     app_secret: 'eFVweDhrYmtvTlNwbW4xNXBoVWtQQT09',
+      //   }
+      //   let res = await getJoke(url, params)
+      //   console.log(res)
+      // },
+      // getJoke() {
+      //   axios.get('/outer/api/jokes/list', { params: { page: 1, app_id: 'pg7rlnkhtmoyjmrr', app_secret: 'eFVweDhrYmtvTlNwbW4xNXBoVWtQQT09' } }).then((res) => {
+      //     console.log(res)
+      //   })
+      // },
+    },
+    created() {
+      // this.getJoke()
+    },
   }
 </script>
 
@@ -102,6 +131,11 @@
     padding: 10px 30px;
     .left {
       flex: 2;
+      .joke {
+        li {
+          font-size: 4.2px;
+        }
+      }
     }
     .right {
       flex: 1;

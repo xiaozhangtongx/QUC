@@ -9,3 +9,6 @@ export const register = (url, data) => request.post(url, data)
 
 // 用户退出登录接口
 export const logout = (url) => request.get(url)
+
+// 获取笑话接口
+export const getJoke = (url, params) => request.get(url, params)

@@ -27,6 +27,11 @@ import 'amfe-flexible'
 import moment from 'moment'
 import 'moment/locale/zh-cn'
 Vue.prototype.$moment = moment
+// 导入生成表单的包
+import formCreate from '@form-create/element-ui'
+import FcDesigner from '@form-create/designer'
+Vue.use(formCreate)
+Vue.use(FcDesigner)
 
 Vue.prototype.$echarts = echarts
 Vue.config.productionTip = false

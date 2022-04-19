@@ -55,6 +55,7 @@
         padding: 2px 0;
         a {
           color: #000;
+          font-size: 3.2px;
         }
       }
     }

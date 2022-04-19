@@ -1,196 +1,190 @@
-* {
-    /* 初始化 */
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    /* 100%窗口高度 */
-    height: 100vh;
-    /* 弹性布局 水平+垂直居中 */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* 渐变背景 */
-    background: linear-gradient(200deg, #37e2b2, #2fa080);
+.container {
+  /* 100%窗口高度 */
+  height: 100vh;
+  /* 弹性布局 水平+垂直居中 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* 渐变背景 */
+  background: linear-gradient(200deg, #37e2b2, #2fa080);
 }
 
 /* 开始画熊猫 */
 .panda {
-    /* 相对定位 */
-    position: relative;
-    width: 200Px;
+  /* 相对定位 */
+  position: relative;
+  width: 200Px;
 }
 
 /* 脸部 */
 .face {
-    width: 200Px;
-    height: 200Px;
-    background-color: #fff;
-    border-radius: 100%;
-    box-shadow: 0 10Px 15Px rgba(0, 0, 0, 0.15);
-    position: relative;
-    z-index: 1;
+  width: 200Px;
+  height: 200Px;
+  background-color: #fff;
+  border-radius: 100%;
+  box-shadow: 0 10Px 15Px rgba(0, 0, 0, 0.15);
+  position: relative;
+  z-index: 1;
 }
 
 /* 耳朵 */
 .ear {
-    width: 70Px;
-    height: 70Px;
-    background-color: #000;
-    border-radius: 100%;
-    position: absolute;
-    top: -10Px;
+  width: 70Px;
+  height: 70Px;
+  background-color: #000;
+  border-radius: 100%;
+  position: absolute;
+  top: -10Px;
 }
 
 .ear.right {
-    right: 0;
+  right: 0;
 }
 
 /* 黑眼圈 */
 .eye-shadow {
-    width: 50Px;
-    height: 80Px;
-    background-color: #000;
-    border-radius: 50%;
-    /* 绝对定位 */
-    position: absolute;
-    top: 40Px;
+  width: 50Px;
+  height: 80Px;
+  background-color: #000;
+  border-radius: 50%;
+  /* 绝对定位 */
+  position: absolute;
+  top: 40Px;
 }
 
 .eye-shadow.left {
-    transform: rotate(45deg);
-    left: 30Px;
+  transform: rotate(45deg);
+  left: 30Px;
 }
 
 .eye-shadow.right {
-    transform: rotate(-45deg);
-    right: 30Px;
+  transform: rotate(-45deg);
+  right: 30Px;
 }
 
 /* 眼白 */
 .eye-white {
-    width: 30Px;
-    height: 30Px;
-    background-color: #fff;
-    border-radius: 100%;
-    position: absolute;
-    top: 68Px;
+  width: 30Px;
+  height: 30Px;
+  background-color: #fff;
+  border-radius: 100%;
+  position: absolute;
+  top: 68Px;
 }
 
 .eye-white.left {
-    left: 38Px;
+  left: 38Px;
 }
 
 .eye-white.right {
-    right: 38Px;
+  right: 38Px;
 }
 
 /* 眼球 */
 .eye-ball {
-    width: 20Px;
-    height: 20Px;
-    background-color: #000;
-    border-radius: 100%;
-    position: absolute;
-    left: 5Px;
-    top: 5Px;
+  width: 20Px;
+  height: 20Px;
+  background-color: #000;
+  border-radius: 100%;
+  position: absolute;
+  left: 5Px;
+  top: 5Px;
 }
 
 /* 鼻子 */
 .nose {
-    width: 35Px;
-    height: 20Px;
-    background-color: #000;
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: auto;
-    bottom: 65Px;
-    border-radius: 42Px 42Px 60Px 60Px / 30Px 30Px 60Px 60Px;
+  width: 35Px;
+  height: 20Px;
+  background-color: #000;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom: 65Px;
+  border-radius: 42Px 42Px 60Px 60Px / 30Px 30Px 60Px 60Px;
 }
 
 /* 嘴巴 */
 .mouth {
-    width: 68Px;
-    height: 25Px;
-    border-bottom: 7Px solid #000;
-    border-radius: 50%;
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: auto;
-    bottom: 35Px;
+  width: 68Px;
+  height: 25Px;
+  border-bottom: 7Px solid #000;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom: 35Px;
 }
 
 /* 身体 */
 .body {
-    width: 250Px;
-    height: 280Px;
-    background-color: #fff;
-    position: relative;
-    left: -25Px;
-    top: -10Px;
-    border-radius: 100Px 100Px 100Px 100Px / 126Px 126Px 96Px 96Px;
-    box-shadow: 0 5Px 10Px rgba(0, 0, 0, 0.3);
+  width: 250Px;
+  height: 280Px;
+  background-color: #fff;
+  position: relative;
+  left: -25Px;
+  top: -10Px;
+  border-radius: 100Px 100Px 100Px 100Px / 126Px 126Px 96Px 96Px;
+  box-shadow: 0 5Px 10Px rgba(0, 0, 0, 0.3);
 }
 
 /* 脚 */
 .foot {
-    width: 82Px;
-    height: 120Px;
-    background-color: #000;
-    position: absolute;
-    bottom: 8Px;
-    z-index: 3;
-    border-radius: 40Px 40Px 35Px 40Px / 26Px 26Px 63Px 63Px;
-    box-shadow: 0 5Px 5Px rgba(0, 0, 0, 0.2);
+  width: 82Px;
+  height: 120Px;
+  background-color: #000;
+  position: absolute;
+  bottom: 8Px;
+  z-index: 3;
+  border-radius: 40Px 40Px 35Px 40Px / 26Px 26Px 63Px 63Px;
+  box-shadow: 0 5Px 5Px rgba(0, 0, 0, 0.2);
 }
 
 .foot.left {
-    left: -80Px;
+  left: -80Px;
 }
 
 .foot.right {
-    right: -80Px;
-    transform: rotateY(180deg);
+  right: -80Px;
+  transform: rotateY(180deg);
 }
 
 /* 脚掌-大椭圆 */
 .foot::after {
-    content: "";
-    width: 55Px;
-    height: 65Px;
-    background-color: #222;
-    position: absolute;
-    border-radius: 50%;
-    left: 0;
-    right: 0;
-    margin: auto;
-    bottom: 10Px;
+  content: '';
+  width: 55Px;
+  height: 65Px;
+  background-color: #222;
+  position: absolute;
+  border-radius: 50%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom: 10Px;
 }
 
 /* 脚掌-三个小椭圆 */
 .foot .sole,
 .foot .sole::before,
 .foot .sole::after {
-    width: 20Px;
-    height: 30Px;
-    background-color: #222;
-    position: absolute;
-    border-radius: 50%;
-    left: 0;
-    right: 0;
-    margin: auto;
-    top: 8Px;
+  width: 20Px;
+  height: 30Px;
+  background-color: #222;
+  position: absolute;
+  border-radius: 50%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 8Px;
 }
 
 .foot .sole::before {
-    content: "";
-    left: -50Px;
+  content: '';
+  left: -50Px;
 }
 
 .foot .sole::after {
-    content: "";
-    left: 25Px;
+  content: '';
+  left: 25Px;
 }

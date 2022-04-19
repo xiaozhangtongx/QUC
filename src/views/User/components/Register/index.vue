@@ -15,20 +15,32 @@
       <input type="password" id="password" required />
       <label>确定密码</label>
     </div>
-    <button>登录</button>
+    <button style="margin-bottom: 2px" @click="goLogin">注册</button>
   </div>
 </template>
 
 <script>
-export default {
-  name: '',
-  data() {
-    return {};
-  },
-  methods: {},
-};
+  export default {
+    name: '',
+    data() {
+      return {}
+    },
+    methods: {
+      // 到登录页面
+      goLogin() {
+        this.$router.push('/login')
+      },
+    },
+  }
 </script>
 
 <style scoped lang="less">
-@import '../style.css';
+  @import '../style.css';
+  h1 {
+    font-size: 6px;
+    font-weight: 600;
+  }
+  button {
+    font-size: 4.2px;
+  }
 </style>

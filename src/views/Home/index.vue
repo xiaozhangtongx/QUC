@@ -16,8 +16,15 @@
         </div>
       </section>
       <section class="right">
+        <!-- 用户注册登录 -->
+        <div class="box-global user-info" v-if="true">
+          <h2 class="label">QU碳联盟</h2>
+          <div class="join-us">
+            <li v-for="item in linkData" :key="item.id" @click="goLink(item)">{{ item.name }}</li>
+          </div>
+        </div>
         <!-- 用户信息 -->
-        <div class="box-global user-info">
+        <div class="box-global user-info" v-else>
           <div class="info-top">
             <li class="avatar">
               <el-avatar src="https://p.qqan.com/up/2020-8/15979703191215711.jpg"></el-avatar>
@@ -81,6 +88,16 @@
       return {
         rank: 0,
         count: 0,
+        // QU碳联盟
+        linkData: [
+          { id: 0, name: '加入QU碳', path: '/login' },
+          { id: 1, name: 'QU碳足迹', path: '/map' },
+          { id: 2, name: 'QU碳文库', path: '/library' },
+          { id: 3, name: 'QU碳活动', path: '/actions' },
+          { id: 4, name: 'QU碳组织', path: '/organization' },
+          { id: 5, name: '联系我们', path: '/feedback' },
+        ],
+        // 用户信息
         info: {
           like: 45,
           collect: 46,
@@ -173,6 +190,10 @@
       goDetail(item) {
         this.$router.push({ path: '/detail', query: { data: item } })
       },
+      // 跳转到各个小界面
+      goLink(item) {
+        this.$router.push(item.path)
+      },
     },
   }
 </script>
@@ -224,6 +245,7 @@
           }
         }
         .user-info {
+          height: 37px;
           .info-top {
             display: flex;
             justify-content: space-around;
@@ -257,6 +279,30 @@
                 font-size: 3.7px;
                 text-align: center;
               }
+            }
+          }
+        }
+        .join-us {
+          width: 100%;
+          display: flex;
+          justify-content: space-around;
+          flex-wrap: wrap;
+          li {
+            width: 30%;
+            height: 9px;
+            margin-bottom: 2px;
+            color: #fff;
+            font-size: 4.2px;
+            font-weight: 600;
+            line-height: 9px;
+            text-align: center;
+            border-radius: 2px;
+            background: linear-gradient(90deg, #cbee41, #0dbc79);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            &:hover {
+              transform: translateY(-1.7px);
+              box-shadow: 2px 2px 7px #dbd9e9;
             }
           }
         }

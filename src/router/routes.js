@@ -26,10 +26,10 @@ const routes = [
     path: '/detail',
     component: () => import('@/views/DetailPage'),
   },
+  // 用户登录注册
   {
     path: '/user',
     redirect: '/login',
-    name: 'User',
     component: () => import('@/views/User'),
     children: [
       {
@@ -52,6 +52,6 @@ const routes = [
     path: '*',
     component: () => import('@/views/Error/404'),
   },
-];
+]
 
-export default routes;
+export default routes

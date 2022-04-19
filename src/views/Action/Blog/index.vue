@@ -17,8 +17,8 @@
           </section>
         </li>
         <li class="user-fun">
-          <ClickButton>实时排名</ClickButton>
-          <ClickButton>我要发布</ClickButton>
+          <ClickButton>个人中心</ClickButton>
+          <ClickButton @click.native="goMark">我要发布</ClickButton>
         </li>
       </div>
       <!-- 相关模块 -->
@@ -96,7 +96,11 @@
         time: new Date().toLocaleString(),
       }
     },
-    methods: {},
+    methods: {
+      goMark() {
+        this.$router.push('/post_blog')
+      },
+    },
   }
 </script>
 

@@ -44,7 +44,7 @@ const routes_main = [
           // 新闻资讯子路由
           {
             path: '/news',
-            name: 'Information',
+            name: 'News',
             meta: { icon: 'el-icon-s-flag', title: '资讯' },
             component: () => import('@/views/Information/News'),
           },
@@ -91,6 +91,11 @@ const routes_main = [
             component: () => import('@/views/Action/Actions'),
           },
         ],
+      },
+      // 打卡页面
+      {
+        path: '/post_blog',
+        component: () => import('@/views/Action/BlogPost'),
       },
     ],
   },
