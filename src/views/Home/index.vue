@@ -91,7 +91,7 @@
         // QU碳联盟
         linkData: [
           { id: 0, name: '加入QU碳', path: '/login' },
-          { id: 1, name: 'QU碳足迹', path: '/map' },
+          { id: 1, name: 'QU碳足迹', path: '/echart' },
           { id: 2, name: 'QU碳文库', path: '/library' },
           { id: 3, name: 'QU碳活动', path: '/actions' },
           { id: 4, name: 'QU碳组织', path: '/organization' },

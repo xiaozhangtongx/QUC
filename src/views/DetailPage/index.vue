@@ -79,4 +79,15 @@
       color: #0dbc79;
     }
   }
+  article {
+    /deep/p {
+      padding: 0px;
+      margin: 0px;
+      font-size: 5.3px !important;
+      text-indent: 0em !important;
+    }
+    /deep/strong {
+      font-size: 5.3px !important;
+    }
+  }
 </style>
