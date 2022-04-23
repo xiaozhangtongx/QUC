@@ -31,3 +31,11 @@
 .el-message__content {
   font-size: 17px !important;
 }
+#nprogress .bar {
+  background: red !important;
+  height: 2px !important;
+}
+#nprogress .spinner {
+  display: none !important;
+  z-index: -10;
+}

@@ -29,8 +29,8 @@ module.exports = {
     hotOnly: false,
     // 处理跨域
     proxy: {
-      '/inter': {
-        target: 'http://127.0.0.1:9002',
+      '/api': {
+        target: 'http://127.0.0.1:9003',
         changeOrigin: true, // 如果接口跨域，需要进行这个参数配置
       },
       // 获取笑话接口api

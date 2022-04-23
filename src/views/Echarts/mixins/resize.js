@@ -1,47 +1,47 @@
-import { debounce } from '@/utils/index.js';
+import { debounce } from '@/utils/index'
 
 export default {
   data() {
     return {
       myChart: null,
       resizeHandler: null,
-    };
+    }
   },
   mounted() {
     this.resizeHandler = debounce(() => {
       if (this.myChart) {
-        this.myChart.resize();
+        this.myChart.resize()
       }
-    }, 200);
-    this.initResizeEvent();
+    }, 200)
+    this.initResizeEvent()
   },
 
   beforeDestroy() {
-    this.destroyResizeEvent();
+    this.destroyResizeEvent()
     if (!this.myChart) {
-      return;
+      return
     }
-    this.myChart.dispose();
-    this.myChart.off('click');
-    this.myChart = null;
+    this.myChart.dispose()
+    this.myChart.off('click')
+    this.myChart = null
   },
 
   activated() {
-    this.initResizeEvent();
+    this.initResizeEvent()
   },
 
   deactivated() {
-    this.destroyResizeEvent();
+    this.destroyResizeEvent()
   },
 
   methods: {
     //监听resize
     initResizeEvent() {
-      window.addEventListener('resize', this.resizeHandler);
+      window.addEventListener('resize', this.resizeHandler)
     },
     //移除resize
     destroyResizeEvent() {
-      window.removeEventListener('resize', this.resizeHandler);
+      window.removeEventListener('resize', this.resizeHandler)
     },
   },
-};
+}

@@ -33,7 +33,7 @@ const actions = {
 
   // 用户登录
   async userLogin({ commit }, user) {
-    let res = await login('/login', user)
+    let res = await login('/api/login', user)
     if (res.status === 200) {
       // 将token保存到Vuex中
       commit('USERLOGIN', res.data.token)
