@@ -1,23 +1,25 @@
 <template>
-  <div class="echarts" style="width: 100vw; height: 100vh">
-    <div style="width: 100%; height: 100%" ref="allMap"></div>
-    <div class="mapChoose">
-      <span v-for="(item, index) in parentInfo" :key="item.code">
-        <span class="title" @click="chooseArea(item, index)">{{
-          item.cityName == '全国' ? '中国' : item.cityName
-        }}</span>
-        <span class="icon" v-show="index + 1 != parentInfo.length">></span>
-      </span>
+  <div class="home">
+    <div class="echarts" style="width: 100vw; height: 100vh">
+      <div style="width: 100; height: 100%" ref="Map"></div>
+      <div class="mapChoose">
+        <span v-for="(item, index) in parentInfo" :key="item.code">
+          <span class="title" @click="chooseArea(item, index)">{{
+            item.cityName == '全国' ? '中国' : item.cityName
+          }}</span>
+          <span class="icon" v-show="index + 1 != parentInfo.length">></span>
+        </span>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-// TODO 一定时间会卡顿
-// import resize from './mixins/resize';
+// TODO 点击右边的栏后会卡死
+import resize from '../mixins/resize';
 export default {
   name: 'Map',
-  // mixins: [resize],
+  mixins: [resize],
   data() {
     return {
       myCharts: null,
@@ -89,7 +91,7 @@ export default {
       this.initEcharts(mapData, pointData, sum);
     },
     initEcharts(mapData, pointData, sum) {
-      this.myChart = this.$echarts.init(this.$refs.allMap);
+      this.myChart = this.$echarts.init(this.$refs.Map);
       if (this.parentInfo.length === 1) {
         this.$echarts.registerMap('china', this.geoJson); //注册
       } else {
@@ -455,27 +457,33 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-.echarts {
+.home {
   width: 100%;
   height: 100%;
   position: relative;
-  // background: url('@/assets/mapbg.jpg') no-repeat;
-  background-size: 100% 100%;
-  .mapChoose {
-    position: absolute;
-    left: 5px;
-    top: 10px;
-    color: rgb(0, 0, 0);
-    .title {
-      padding: 5px;
-      border-top: 1px solid rgba(147, 235, 248, 0.8);
-      border-bottom: 1px solid rgba(147, 235, 248, 0.8);
-      cursor: pointer;
-    }
-    .icon {
-      font-family: 'simsun';
-      font-size: 10px;
-      margin: 0 11px;
+  .echarts {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: url('./mapbg.jpg') no-repeat;
+    background-size: 100% 100%;
+    .mapChoose {
+      position: absolute;
+      left: 20Px;
+      top: 60Px;
+      color: #eee;
+      .title {
+        padding: 5Px;
+        font-size: 15Px;
+        border-top: 1Px solid rgba(147, 235, 248, 0.8);
+        border-bottom: 1Px solid rgba(147, 235, 248, 0.8);
+        cursor: pointer;
+      }
+      .icon {
+        font-family: 'simsun';
+        font-size: 10Px;
+        margin: 0 11Px;
+      }
     }
   }
 }

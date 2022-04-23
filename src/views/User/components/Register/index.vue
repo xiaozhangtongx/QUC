@@ -4,16 +4,13 @@
     <div class="hand right"></div>
     <h1>用户注册</h1>
     <div class="ipt-box">
-      <input type="text" required />
-      <label>用户名</label>
+      <input type="text" placeholder="用户名" required />
     </div>
     <div class="ipt-box">
-      <input type="password" id="password" required />
-      <label>密码</label>
+      <input type="password" placeholder="密码" id="password" required />
     </div>
     <div class="ipt-box">
-      <input type="password" id="password" required />
-      <label>确定密码</label>
+      <input type="password" placeholder="确定密码" id="password" required />
     </div>
     <button style="margin-bottom: 2px" @click="goLogin">注册</button>
   </div>
@@ -21,14 +18,14 @@
 
 <script>
 export default {
-  name: "",
+  name: '',
   data() {
     return {};
   },
   methods: {
     // 到登录页面
     goLogin() {
-      this.$router.push("/login");
+      this.$router.push('/login');
     },
   },
 };
