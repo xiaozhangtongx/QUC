@@ -469,20 +469,20 @@ export default {
     background-size: 100% 100%;
     .mapChoose {
       position: absolute;
-      left: 20px;
-      top: 60px;
+      left: 20Px;
+      top: 60Px;
       color: #eee;
       .title {
-        padding: 5px;
-        font-size: 15px;
-        border-top: 1px solid rgba(147, 235, 248, 0.8);
-        border-bottom: 1px solid rgba(147, 235, 248, 0.8);
+        padding: 5Px;
+        font-size: 15Px;
+        border-top: 1Px solid rgba(147, 235, 248, 0.8);
+        border-bottom: 1Px solid rgba(147, 235, 248, 0.8);
         cursor: pointer;
       }
       .icon {
         font-family: 'simsun';
-        font-size: 10px;
-        margin: 0 11px;
+        font-size: 10Px;
+        margin: 0 11Px;
       }
     }
   }
