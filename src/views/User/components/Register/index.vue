@@ -20,27 +20,26 @@
 </template>
 
 <script>
-  export default {
-    name: '',
-    data() {
-      return {}
+export default {
+  name: "",
+  data() {
+    return {};
+  },
+  methods: {
+    // 到登录页面
+    goLogin() {
+      this.$router.push("/login");
     },
-    methods: {
-      // 到登录页面
-      goLogin() {
-        this.$router.push('/login')
-      },
-    },
-  }
+  },
+};
 </script>
 
 <style scoped lang="less">
-  @import '../style.css';
-  h1 {
-    font-size: 6px;
-    font-weight: 600;
-  }
-  button {
-    font-size: 4.2px;
-  }
+h1 {
+  font-size: 6px;
+  font-weight: 600;
+}
+button {
+  font-size: 4.2px;
+}
 </style>
