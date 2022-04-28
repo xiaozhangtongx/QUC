@@ -38,9 +38,14 @@
       },
       // 用户登录
       async Login() {
-        let res = await this.$store.dispatch('userLogin', this.userInfo)
-        console.log(res)
-        // this.$router.push('/home')
+        try {
+          let res = await this.$store.dispatch('userLogin', this.userInfo)
+          if (res === 'success') {
+            this.$router.push('/home')
+          }
+        } catch (error) {
+          console.error(error)
+        }
       },
     },
     components: {

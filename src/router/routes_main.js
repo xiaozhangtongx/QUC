@@ -48,13 +48,13 @@ const routes_main = [
             meta: { icon: 'el-icon-s-flag', title: '资讯' },
             component: () => import('@/views/Information/News'),
           },
-          // 活动模块子路由
-          {
-            path: '/activity',
-            name: 'Activity',
-            meta: { icon: 'el-icon-s-flag', title: '活动' },
-            component: () => import('@/views/Information/Activity'),
-          },
+          // // 活动模块子路由
+          // {
+          //   path: '/activity',
+          //   name: 'Activity',
+          //   meta: { icon: 'el-icon-s-flag', title: '活动' },
+          //   component: () => import('@/views/Information/Activity'),
+          // },
         ],
       },
       // QU碳办公室

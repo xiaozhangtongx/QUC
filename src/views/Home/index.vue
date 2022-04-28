@@ -17,7 +17,7 @@
       </section>
       <section class="right">
         <!-- 用户注册登录 -->
-        <div class="box-global user-info" v-if="true">
+        <div class="box-global user-info" v-if="!isLogin">
           <h2 class="label">QU碳联盟</h2>
           <div class="join-us">
             <li v-for="item in linkData" :key="item.id" @click="goLink(item)">{{ item.name }}</li>
@@ -27,14 +27,14 @@
         <div class="box-global user-info" v-else>
           <div class="info-top">
             <li class="avatar">
-              <el-avatar src="https://p.qqan.com/up/2020-8/15979703191215711.jpg"></el-avatar>
+              <el-avatar :src="userInfo.user_avatar"></el-avatar>
               <section class="info">
-                <p class="name">小爱同学</p>
-                <p><span class="c-coin">C币:</span> 12134</p>
+                <p class="name">{{ userInfo.user_name }}</p>
+                <p><span class="c-coin">C币:</span> {{ userInfo.user_score }}</p>
               </section>
             </li>
             <li>
-              <ClickButton>个人中心</ClickButton>
+              <ClickButton @click.native="goAction()">今日打卡</ClickButton>
             </li>
           </div>
           <div class="info-bottom">
@@ -98,6 +98,7 @@
           { id: 5, name: '联系我们', path: '/feedback' },
         ],
         // 用户信息
+        userInfo: this.$store.state.user.user,
         info: {
           like: 45,
           collect: 46,
@@ -193,6 +194,16 @@
       // 跳转到各个小界面
       goLink(item) {
         this.$router.push(item.path)
+      },
+      // 跳转到活动界面
+      goAction() {
+        this.$router.push('/actions')
+      },
+    },
+    computed: {
+      isLogin() {
+        console.log(this.$store.state.user.user)
+        return this.$store.state.user.user
       },
     },
   }

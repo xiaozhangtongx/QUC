@@ -1,4 +1,4 @@
-// 用户模块仓库
+// 导航栏模块仓库
 const state = {
   selectId: window.localStorage.getItem('selectId'),
 }

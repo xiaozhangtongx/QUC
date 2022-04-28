@@ -1,11 +1,14 @@
 <template>
-  <div>
+  <div style="margin-bottom: 10px">
     <ul>
-      <li class="rank-list" v-for="(item, index) in 10" :key="item">
+      <li class="rank-list" v-for="(item, index) in rankList" :key="index">
         <div class="rank">
           <span>{{ index + 1 }}</span>
         </div>
-        <div class="content"><span>name</span><span>grides</span></div>
+        <div class="content">
+          <el-avatar :src="item.user_avatar"></el-avatar><span>{{ item.user_name }}</span
+          ><span>{{ item.user_score }}</span>
+        </div>
       </li>
     </ul>
   </div>
@@ -15,9 +18,19 @@
   export default {
     name: '',
     data() {
-      return {}
+      return {
+        rankList: [],
+      }
     },
-    methods: {},
+    methods: {
+      async getRank() {
+        this.rankList = await this.$store.dispatch('getRank')
+        console.log(this.rankList)
+      },
+    },
+    created() {
+      this.getRank()
+    },
   }
 </script>
 
@@ -26,6 +39,8 @@
     display: flex;
     > div {
       display: inline-flex;
+      justify-content: center;
+      align-items: center;
       margin-top: 6px;
       span {
         font-size: 4.2px;
@@ -47,10 +62,16 @@
       flex: 4;
       justify-content: space-between;
       border-bottom: 0.37px dashed #eee;
+      padding-right: 2px;
     }
   }
   .reload {
     margin-top: 3.7px;
     float: right;
+  }
+  // 头像的大小
+  /deep/.el-avatar {
+    width: 13px !important;
+    height: 13px !important;
   }
 </style>

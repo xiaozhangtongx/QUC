@@ -3,10 +3,10 @@
     <el-backtop>
       <i class="el-icon-caret-top"></i>
     </el-backtop>
-    <div class="title" :style="{ backgroundImage: 'url(' + data.img + ')' }">{{ data.title }}</div>
+    <div class="title" :style="{ backgroundImage: 'url(' + data.cover_image + ')' }">{{ data.blog_title }}</div>
     <div class="article">
-      <WordCloud class="wordCloud" v-show="data.keywords"></WordCloud>
-      <article v-html="data.content"></article>
+      <WordCloud class="wordCloud" v-show="data.keyword" :list="keywords"></WordCloud>
+      <article v-html="data.blog_content"></article>
       <video :src="data.video" muted loop controls autoplay class="video" v-show="data.video"></video>
     </div>
   </div>
@@ -22,16 +22,26 @@
     data() {
       return {
         data: JSON.parse(localStorage.getItem('DATA')),
+        keywords: [],
       }
     },
     methods: {},
     // 获取数据
     created() {
+      console.log(this.$route.query)
       let value = this.$route.query.data
-      if (value.id !== undefined) {
+      if (value.blog_id !== undefined) {
         localStorage.setItem('DATA', JSON.stringify(value))
       }
       this.data = JSON.parse(localStorage.getItem('DATA'))
+      let key = this.data.keyword
+      var reg = /'(.*?)'/g
+      let res = key.match(reg).reverse()
+      let lists = []
+      res.forEach((item, index) => {
+        lists.push({ value: index, name: item })
+      })
+      this.keywords = lists
     },
   }
 </script>
@@ -80,7 +90,8 @@
     }
   }
   article {
-    /deep/p {
+    /deep/p,
+    /deep/span {
       padding: 0px;
       margin: 0px;
       font-size: 5.3px !important;

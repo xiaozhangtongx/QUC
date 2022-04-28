@@ -40,7 +40,7 @@
         </li>
       </div>
       <!-- 用户信息 -->
-      <div class="user-info box-global">
+      <!-- <div class="user-info box-global">
         <div class="info-top">
           <li class="avatar">
             <el-avatar src="https://p.qqan.com/up/2020-8/15979703191215711.jpg"></el-avatar>
@@ -62,7 +62,7 @@
             <span>{{ info.total }}</span>
           </li>
         </div>
-      </div>
+      </div> -->
       <!-- 排行榜 -->
       <div class="box-global">
         <h2 class="label">实时排行榜</h2>

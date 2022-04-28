@@ -58,7 +58,7 @@
         word-wrap: break-word;
         text-overflow: ellipsis;
         display: -webkit-box;
-        -webkit-line-clamp: 4; //显示的行数
+        -webkit-line-clamp: 3; //显示的行数
         -webkit-box-orient: vertical;
         line-clamp: 2;
       }
@@ -72,5 +72,18 @@
         }
       }
     }
+  }
+  /deep/p,
+  /deep/span {
+    padding: 0px;
+    margin: 0px;
+    font-size: 5.3px !important;
+    text-indent: 0em !important;
+    font-family: '微软雅黑' !important;
+    line-height: 6px !important;
+    text-align: justify !important;
+  }
+  /deep/strong {
+    font-size: 5.3px !important;
   }
 </style>
