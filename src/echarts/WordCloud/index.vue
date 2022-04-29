@@ -14,23 +14,7 @@
       },
     },
     data() {
-      return {
-        // list: [
-        //   {
-        //     value: '50',
-        //     name: '华为',
-        //   },
-        //   { value: '30', name: 'VIVO' },
-        //   { value: '29', name: 'OPPO' },
-        //   { value: '28', name: 'HONOR' },
-        //   { value: '27', name: '红米' },
-        //   { value: '26', name: '小米' },
-        //   { value: '25', name: '美图' },
-        //   { value: '24', name: 'ONEPLUS' },
-        //   { value: '23', name: '魅族' },
-        //   { value: '22', name: '红手指' },
-        // ],
-      }
+      return {}
     },
     mounted() {
       //   构建好词云图

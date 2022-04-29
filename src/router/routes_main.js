@@ -66,7 +66,7 @@ const routes_main = [
         component: () => import('@/views/Office'),
         children: [
           { path: '/library', name: 'library', meta: { title: 'QU碳文库' }, component: () => import('@/views/Office/Library') },
-          { path: '/organization', name: 'organization', meta: { title: 'QU碳组织' }, component: () => import('@/views/Office/Organization') },
+          // { path: '/organization', name: 'organization', meta: { title: 'QU碳组织' }, component: () => import('@/views/Office/Organization') },
           { path: '/feedback', name: 'feedback', meta: { title: '联系我们' }, component: () => import('@/views/Office/FeedBack') },
         ],
       },

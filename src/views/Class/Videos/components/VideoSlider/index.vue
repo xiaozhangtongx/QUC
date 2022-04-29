@@ -24,7 +24,7 @@
           { id: 4, url: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/4.jpg', title: '聊聊碳中和那些事3' },
           { id: 5, url: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/5.jpg', title: '聊聊碳中和那些事4' },
         ],
-        videoUrl: 'https://klxxcdn.oss-cn-hangzhou.aliyuncs.com/histudy/hrm/media/video1.mp4',
+        videoUrl: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/videos/v1.mp4',
         title: '你不知道的碳中和',
       }
     },
@@ -33,7 +33,7 @@
       selectUrl(item) {
         let id = item.id
         this.title = item.title
-        this.videoUrl = `https://klxxcdn.oss-cn-hangzhou.aliyuncs.com/histudy/hrm/media/video${id}.mp4`
+        this.videoUrl = `https://qucs.oss-cn-hangzhou.aliyuncs.com/videos/v${id}.mp4`
       },
     },
   }

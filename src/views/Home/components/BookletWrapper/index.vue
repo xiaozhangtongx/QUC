@@ -26,6 +26,7 @@
         homeData: [],
         queryInfo: {
           type_name: '资讯',
+          limit: 6,
         },
       }
     },

@@ -40,7 +40,7 @@ service.interceptors.request.use(
 service.interceptors.response.use((response) => {
   const { status, data, message } = response.data
   if (status === 200) {
-    Message.success(message)
+    // Message.success(message)
     // 进度条结束
     NProgress.done()
     return response.data

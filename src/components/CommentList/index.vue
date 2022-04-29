@@ -1,24 +1,32 @@
 <template>
   <div id="blog-card">
     <div class="comment">
-      <el-avatar src="https://p.qqan.com/up/2020-8/15979703191215711.jpg"></el-avatar>
+      <slot name="avatar"> </slot>
       <ul>
         <li class="user-info">
-          <p class="name">小爱同学</p>
-          <p class="icon"><i class="el-icon-time icon"></i>{{ time }}</p>
+          <p class="name">
+            <slot name="name"></slot>
+          </p>
+          <p class="icon"><i class="el-icon-time icon"></i><slot name="time"></slot></p>
         </li>
         <li class="content">
-          asderwefsfsfsdfsdfhttp://img1.mydrivers.com/img/20190129/9d0fca44865b4925be0c668994def6dd.jpg感谢美团！！！ 刚刚收到美团正式offer，Java后端开发。一面不记得了，二面22号，
-          没有HR面，24号收到HR的oc，但是30号之前就要确定接不接（虽然本菜鸡暂时也没有其他offer，肯定会接）Offer上面没写部门，申请页面也找不到。二面反问面试官的时候，他和我提了一下是到家下面的外卖，具体也没有说的很清楚。
-          虽然肯定会先接Offer，但是还是好奇具体是哪个部门，有没有兄弟知道美团怎么知道自己是哪个部门吗？
+          <slot name="content"></slot>
         </li>
-        <li class="imgs"><img v-for="item in 3" :key="item" src="http://img1.mydrivers.com/img/20190129/9d0fca44865b4925be0c668994def6dd.jpg" alt="你的图片跑了！" /></li>
+        <li class="imgs">
+          <slot name="image"></slot>
+        </li>
       </ul>
     </div>
     <div class="feed">
-      <li><i class="el-icon-star-off icon">123</i></li>
-      <li><i class="el-icon-star-off icon">123</i></li>
-      <li><i class="el-icon-warning-outline icon">456</i></li>
+      <li>
+        <i class="el-icon-view icon"><slot name="see"></slot></i>
+      </li>
+      <li>
+        <i class="el-icon-star-off icon"><slot name="save"></slot></i>
+      </li>
+      <li>
+        <i class="el-icon-chat-dot-round icon"><slot name="comments"></slot></i>
+      </li>
     </div>
   </div>
 </template>
@@ -83,7 +91,7 @@
       .imgs {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-evenly;
+        justify-content: space-between;
         img {
           width: 32%;
           height: 37px;
@@ -105,6 +113,9 @@
       &:hover {
         color: #0dbc79;
       }
+    }
+    span {
+      font-size: 4.2px;
     }
   }
 </style>

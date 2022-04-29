@@ -8,9 +8,9 @@
         <div class="box-global knowledge">
           <h2 class="label">QU碳小知识</h2>
           <div class="knowledge-card">
-            <Cards class="card" v-for="item in knowData" :key="item.id" @click.native="goDetail(item)">
-              <img v-lazy="item.img" slot="media" />
-              <p slot="content" class="content">{{ item.content }}</p>
+            <Cards class="card" v-for="item in knowData" :key="item.blog_id" @click.native="goDetail(item)">
+              <img v-lazy="item.cover_image" slot="media" />
+              <p slot="title" class="content">{{ item.blog_title }}</p>
             </Cards>
           </div>
         </div>
@@ -58,10 +58,10 @@
     <div class="box-global video-card">
       <h2 class="label">QU碳小视频</h2>
       <div class="video">
-        <HoverCard class="medium" v-for="item in videoData" :key="item.id">
-          <video muted loop controls webkit-playsinline="true" playsinline="true" x5-video-player-type="h5-page" :poster="item.img" class="videoItem" slot="media"></video>
-          <h5 slot="title">{{ item.title }}</h5>
-          <h5 slot="info-title">{{ item.title }}</h5>
+        <HoverCard class="medium" v-for="item in videoData" :key="item.blog_id">
+          <video muted loop controls webkit-playsinline="true" playsinline="true" x5-video-player-type="h5-page" :poster="item.cover_image" class="videoItem" slot="media"></video>
+          <h5 slot="title">{{ item.blog_title }}</h5>
+          <h5 slot="info-title">{{ item.blog_title }}</h5>
           <ClickButton slot="btn" @click.native="goDetail(item)">探索更多</ClickButton>
         </HoverCard>
       </div>
@@ -88,6 +88,10 @@
       return {
         rank: 0,
         count: 0,
+        queryInfo: {
+          type_name: '知识',
+          limit: 6,
+        },
         // QU碳联盟
         linkData: [
           { id: 0, name: '加入QU碳', path: '/login' },
@@ -148,39 +152,39 @@
         // 去碳小视频数据
         videoData: [
           {
-            id: 0,
-            img: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/1.jpg',
-            title: '人难免天生有自怜情绪，唯有时刻保持清醒，才能看清真正的价值在哪里1。',
+            blog_id: 0,
+            cover_image: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/2.jpg',
+            blog_title: '科普君：碳达峰和碳中和究竟是什么？',
             video: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/videos/v1.mp4',
           },
           {
-            id: 1,
-            img: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/2.jpg',
-            title: '人难免天生有自怜情绪，唯有时刻保持清醒，才能看清真正的价值在哪里2。',
+            blog_id: 1,
+            cover_image: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/0.jpg',
+            blog_title: '探索碳达峰和碳中和',
             video: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/videos/v2.mp4',
           },
           {
-            id: 2,
-            img: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/3.jpg',
-            title: '人难免天生有自怜情绪，唯有时刻保持清醒，才能看清真正的价值在哪里3。',
+            blog_id: 2,
+            cover_image: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/3.jpg',
+            blog_title: '什么是双碳',
             video: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/videos/v3.mp4',
           },
           {
-            id: 3,
-            img: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/4.jpg',
-            title: '人难免天生有自怜情绪，唯有时刻保持清醒，才能看清真正的价值在哪里4。',
+            blog_id: 3,
+            cover_image: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/4.jpg',
+            blog_title: '未来的低碳生活场景',
             video: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/videos/v4.mp4',
           },
           {
-            id: 4,
-            img: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/5.jpg',
-            title: '人难免天生有自怜情绪，唯有时刻保持清醒，才能看清真正的价值在哪里5。',
+            blog_id: 4,
+            cover_image: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/5.jpg',
+            blog_title: '你不知到的碳排放',
             video: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/videos/v5.mp4',
           },
           {
-            id: 5,
-            img: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/6.jpg',
-            title: '人难免天生有自怜情绪，唯有时刻保持清醒，才能看清真正的价值在哪里6。',
+            blog_id: 5,
+            cover_image: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/6.jpg',
+            blog_title: '碳达峰和碳中和是个啥？',
             video: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/videos/v6.mp4',
           },
         ],
@@ -199,6 +203,13 @@
       goAction() {
         this.$router.push('/actions')
       },
+      // 获取知识卡片
+      async getBlog() {
+        this.knowData = await this.$store.dispatch('getBlog', this.queryInfo)
+      },
+    },
+    created() {
+      this.getBlog()
     },
     computed: {
       isLogin() {

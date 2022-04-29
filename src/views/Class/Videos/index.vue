@@ -2,10 +2,10 @@
   <div id="video">
     <VideoSlider class="video-slider"> </VideoSlider>
     <div class="video">
-      <HoverCard class="medium" v-for="item in videoData" :key="item.id">
-        <video muted loop controls webkit-playsinline="true" playsinline="true" x5-video-player-type="h5-page" :poster="item.img" class="videoItem" slot="media"></video>
-        <h5 slot="title">{{ item.title }}</h5>
-        <h5 slot="info-title">{{ item.title }}</h5>
+      <HoverCard class="medium" v-for="item in videoData" :key="item.blog_id">
+        <video muted loop controls webkit-playsinline="true" playsinline="true" x5-video-player-type="h5-page" :poster="item.cover_image" class="videoItem" slot="media"></video>
+        <h5 slot="title">{{ item.blog_title }}</h5>
+        <h5 slot="info-title">{{ item.blog_title }}</h5>
         <ClickButton slot="btn" @click.native="goDetail(item)">探索更多</ClickButton>
       </HoverCard>
     </div>
@@ -33,40 +33,40 @@
         // 去碳小视频数据
         videoData: [
           {
-            id: 0,
-            img: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/1.jpg',
-            title: '人难免天生有自怜情绪，唯有时刻保持清醒，才能看清真正的价值在哪里1。',
-            video: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/videos/v1.mp4',
-          },
-          {
-            id: 1,
-            img: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/2.jpg',
-            title: '人难免天生有自怜情绪，唯有时刻保持清醒，才能看清真正的价值在哪里2。',
-            video: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/videos/v2.mp4',
-          },
-          {
-            id: 2,
-            img: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/3.jpg',
-            title: '人难免天生有自怜情绪，唯有时刻保持清醒，才能看清真正的价值在哪里3。',
-            video: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/videos/v3.mp4',
-          },
-          {
-            id: 3,
-            img: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/4.jpg',
-            title: '人难免天生有自怜情绪，唯有时刻保持清醒，才能看清真正的价值在哪里4。',
-            video: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/videos/v4.mp4',
-          },
-          {
-            id: 4,
-            img: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/5.jpg',
-            title: '人难免天生有自怜情绪，唯有时刻保持清醒，才能看清真正的价值在哪里5。',
-            video: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/videos/v5.mp4',
-          },
-          {
-            id: 5,
-            img: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/6.jpg',
-            title: '人难免天生有自怜情绪，唯有时刻保持清醒，才能看清真正的价值在哪里6。',
+            blog_id: 0,
+            cover_image: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/10.jpg',
+            blog_title: '科普君：碳达峰和碳中和究竟是什么？',
             video: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/videos/v6.mp4',
+          },
+          {
+            blog_id: 1,
+            cover_image: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/11.jpg',
+            blog_title: '探索碳达峰和碳中和',
+            video: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/videos/v7.mp4',
+          },
+          {
+            blog_id: 2,
+            cover_image: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/12.jpg',
+            blog_title: '什么是双碳',
+            video: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/videos/v8.mp4',
+          },
+          {
+            blog_id: 3,
+            cover_image: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/13.jpg',
+            blog_title: '未来的低碳生活场景',
+            video: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/videos/v9.mp4',
+          },
+          {
+            blog_id: 4,
+            cover_image: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/14.jpg',
+            blog_title: '你不知到的碳排放',
+            video: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/videos/v10.mp4',
+          },
+          {
+            blog_id: 5,
+            cover_image: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/images/15.jpg',
+            blog_title: '碳达峰和碳中和是个啥？',
+            video: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/videos/v11.mp4',
           },
         ],
       }

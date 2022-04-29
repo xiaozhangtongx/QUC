@@ -1,7 +1,7 @@
 <template>
   <div id="wrapper">
     <li class="video">
-      <iframe class="videoItem" :src="videoData[index].videoUrl" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" slot="media"> </iframe>
+      <video muted loop controls webkit-playsinline="true" playsinline="true" x5-video-player-type="h5-page" :src="videoData[index].videoUrl" class="videoItem" slot="media"></video>
     </li>
     <li class="text">
       <p class="title">{{ videoData[index].title }}</p>
@@ -26,21 +26,24 @@
         videoData: [
           {
             id: 0,
-            videoUrl: 'https://player.bilibili.com/player.html?aid=682382533&bvid=BV1XU4y1R7bw&cid=556147357&page=1',
-            title: '【一问到底】首个氢能产业发展规划发布 氢能如何改变生活?',
-            content: '一问到底·首个氢能产业发展规划发布 氢能如何改变生活？ 助力碳达峰碳中和 氢能时代已开一问到底·首个氢能产业发展规划发布 氢能如何改变生活？ 助力碳达峰碳中和 氢能时代已开',
+            videoUrl: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/videos/hangzhou%20.mp4',
+            title: '【捐赠碳信用量不低于10万吨，杭州打造首届碳中和亚运会】',
+            content:
+              '4月20日，杭州亚组委召开发布会，宣布在全国范围内发动 “人人1千克” 的活动，目标参与人次超1亿人，捐赠碳信用量不低于10万吨。用户日常生活中的绿色出行、减纸减塑、高效节能等绿色行为，在互联网平台产生并积累绿色能量后，可以通过捐赠的方式一起助力亚运会碳中和工作。捐赠后，用户还会获得由亚组委颁发的“亚运碳中和行动者”电子证书。',
           },
           {
             id: 1,
-            videoUrl: 'https://player.bilibili.com/player.html?aid=682382533&bvid=BV1XU4y1R7bw&cid=556147357&page=1',
-            title: '【二问到底】首个氢能产业发展规划发布 氢能如何改变生活?',
-            content: '一问到底·首个氢能产业发展规划发布 氢能如何改变生活？ 助力碳达峰碳中和 氢能时代已开一问到底·首个氢能产业发展规划发布 氢能如何改变生活？ 助力碳达峰碳中和 氢能时代已开',
+            videoUrl: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/videos/zish%20.mp4',
+            title: '【两会30秒】推进碳达峰碳中和首先要摸清家底?',
+            content:
+              '全国政协委员、国家卫星气象中心副主任张兴赢近日接受采访时表示，对于碳达峰碳中和来说，首先需要做的就是要摸清家底。我们要知道究竟我们目前的碳排放情况是什么样的。不同的行业，它究竟排放量多少，那么在国家采取相关的政策措施后。它的效果究竟怎么样的。我们需要有一个客观的评估。',
           },
           {
             id: 3,
-            videoUrl: 'https://player.bilibili.com/player.html?aid=682382533&bvid=BV1XU4y1R7bw&cid=556147357&page=1',
-            title: '【三问到底】首个氢能产业发展规划发布 氢能如何改变生活?',
-            content: '一问到底·首个氢能产业发展规划发布 氢能如何改变生活？ 助力碳达峰碳中和 氢能时代已开一问到底·首个氢能产业发展规划发布 氢能如何改变生活？ 助力碳达峰碳中和 氢能时代已开',
+            videoUrl: 'https://qucs.oss-cn-hangzhou.aliyuncs.com/videos/guang.mp4',
+            title: '【积极服务光伏发电项目 助推实现“双碳”目标】',
+            content:
+              '3月1日，国网淳安县供电公司积极服务千岛湖永通电缆有限公司屋顶光伏发电项目生产。该项目总装机容量6.372兆瓦，年发电量600万千瓦时，能够让一个年总产值7亿元的工业园区实现50%以上用电自给自足，减少碳排放5982吨，助推“双碳”目标的实现。',
           },
         ],
         id: 0,

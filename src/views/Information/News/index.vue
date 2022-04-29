@@ -32,6 +32,7 @@
       return {
         queryInfo: {
           type_name: '资讯',
+          limit: 8,
         },
         news: [],
       }

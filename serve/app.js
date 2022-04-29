@@ -46,7 +46,7 @@ app.use((req, res, next) => {
 })
 
 // 使用 .unless({ path: [/^\/api\//] }) 指定哪些接口不需要进行 Token 的身份认证
-app.use(expressJWT({ secret: config.jwtSecretKey }).unless({ path: ['/api/login', '/api/register', '/api/getBlog', '/api/getRank'] }))
+app.use(expressJWT({ secret: config.jwtSecretKey }).unless({ path: ['/api/login', '/api/register', '/api/getBlog', '/api/getRank', '/api/getPolicy'] }))
 
 // 响应数据的中间件
 app.use((req, res, next) => {

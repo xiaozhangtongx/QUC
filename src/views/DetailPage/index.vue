@@ -28,20 +28,25 @@
     methods: {},
     // 获取数据
     created() {
-      console.log(this.$route.query)
       let value = this.$route.query.data
       if (value.blog_id !== undefined) {
         localStorage.setItem('DATA', JSON.stringify(value))
       }
       this.data = JSON.parse(localStorage.getItem('DATA'))
-      let key = this.data.keyword
-      var reg = /'(.*?)'/g
-      let res = key.match(reg).reverse()
-      let lists = []
-      res.forEach((item, index) => {
-        lists.push({ value: index, name: item })
-      })
-      this.keywords = lists
+      if (this.data.keyword.length) {
+        let key = this.data.keyword
+        var reg = /\'(.*?)\'/g
+        let res = key.match(reg).map((item) => {
+          let tem = item.split("'")
+          return tem[1]
+        })
+        let lists = []
+        res.reverse().forEach((item, index) => {
+          lists.push({ value: index, name: item })
+        })
+        console.log(lists)
+        this.keywords = lists
+      }
     },
   }
 </script>

@@ -26,6 +26,11 @@ const routes = [
     path: '/detail',
     component: () => import('@/views/DetailPage'),
   },
+  // pdf 页面
+  {
+    path: '/pdf',
+    component: () => import('@/components/PDF'),
+  },
   // 用户登录注册
   {
     path: '/user',
