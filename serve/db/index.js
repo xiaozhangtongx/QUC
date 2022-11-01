@@ -3,10 +3,10 @@ const mysql = require('mysql')
 
 // 创建数据库连接对象
 const db = mysql.createPool({
-  host: '47.97.20.71',
-  user: 'COE',
-  password: 'xiaozhangtx',
-  database: 'coe',
+  host: 'xxxx',
+  user: 'xxx',
+  password: 'xxx',
+  database: 'xxx',
   port: 3306,
 })
 
